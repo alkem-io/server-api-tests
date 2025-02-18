@@ -1,6 +1,6 @@
-query GetContextData($spaceId: UUID_NAMEID!, $subspaceId: UUID_NAMEID!) {
-  space(ID: $spaceId) {
-    subspace(ID: $subspaceId) {
+query GetContextData($subspaceId: UUID!) {
+  lookup {
+    space(ID: $subspaceId) {
       ...SubspaceData
     }
   }

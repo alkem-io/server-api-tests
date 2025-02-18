@@ -321,13 +321,13 @@ export class TestScenarioFactory {
       accountID
     );
 
-    if (!responseRootSpace.data?.space) {
+    if (!responseRootSpace.data?.lookup?.space) {
       throw new Error(
         `Failed to create root space: ${JSON.stringify(responseRootSpace.error)}`
       );
     }
 
-    const spaceData = responseRootSpace.data?.space;
+    const spaceData = responseRootSpace.data?.lookup?.space;
     spaceModel.id = spaceData?.id ?? '';
     spaceModel.nameId = spaceData?.nameID ?? '';
     spaceModel.profile = {

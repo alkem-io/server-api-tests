@@ -1,7 +1,6 @@
-query GetSubspaceAvailableMembers($spaceId: UUID_NAMEID!, $subspaceId: UUID_NAMEID!) {
-   space(ID: $spaceId) {
-    id
-    subspace(ID: $subspaceId) {
+query GetSubspaceAvailableMembers($subspaceId: UUID!) {
+  lookup {
+    space(ID: $subspaceId) {
       community {
         id
         roleSet {

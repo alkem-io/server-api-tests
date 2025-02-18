@@ -3,7 +3,7 @@ fragment WhiteboardInCalloutOnCollaborationWithStorageConfig on Collaboration {
   calloutsSet {
     callouts(IDs: [$calloutId]) {
       id
-      contributions(filter: { whiteboardIDs: [$whiteboardId] }) {
+      contributions {
         whiteboard {
           id
           profile {

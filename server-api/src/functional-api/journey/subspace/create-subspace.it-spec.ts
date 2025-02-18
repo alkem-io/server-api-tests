@@ -16,7 +16,7 @@ let subspaceId = '';
 let additionalSubspaceId = '';
 
 const subspaceData = async (subspaceId: string) => {
-  const subspaceData = await getSubspaceData(baseScenario.space.id, subspaceId);
+  const subspaceData = await getSubspaceData(subspaceId);
   return subspaceData;
 };
 
@@ -68,8 +68,7 @@ describe('Create subspace', () => {
     expect(response.status).toBe(200);
     expect(createSubspaceData?.profile.displayName).toEqual('subspaceName');
     expect(createSubspaceData).toEqual(
-      (await getSubspaceData(baseScenario.space.id, additionalSubspaceId)).data
-        ?.space.subspace
+      (await getSubspaceData(additionalSubspaceId)).data?.lookup?.space
     );
     await deleteSpace(additionalSubspaceId);
   });
@@ -84,9 +83,9 @@ describe('Create subspace', () => {
     expect(deleteSubspaceData.status).toBe(200);
     expect(deleteSubspaceData.data?.deleteSpace.id).toEqual(subspaceId);
 
-    expect((await subspacesList()).data?.space.subspaces).not.toContainObject(
-      challangeDataBeforeRemove.data?.space.subspace
-    );
+    expect(
+      (await subspacesList()).data?.lookup?.space?.subspaces
+    ).not.toContainObject(challangeDataBeforeRemove.data?.lookup?.space);
   });
 
   // ToDo: unstable, passes randomly
@@ -108,11 +107,15 @@ describe('Create subspace', () => {
     const subspaceId2 = responseSubspaceTwo.data?.createSubspace.id ?? '';
 
     // Assert
-    expect((await subspacesList()).data?.space.subspaces).toContainObject(
-      (await subspaceData(subspaceId1)).data?.space.subspace
+    expect(
+      (await subspacesList()).data?.lookup?.space?.subspaces
+    ).toContainObject(
+      (await subspaceData(subspaceId1)).data?.lookup?.space?.subspaces[0]
     );
-    expect((await subspacesList()).data?.space.subspaces).toContainObject(
-      (await subspaceData(subspaceId2)).data?.space.subspace
+    expect(
+      (await subspacesList()).data?.lookup?.space?.subspaces
+    ).toContainObject(
+      (await subspaceData(subspaceId2)).data?.lookup?.space?.subspaces[0]
     );
     await deleteSpace(subspaceId1);
     await deleteSpace(subspaceId2);

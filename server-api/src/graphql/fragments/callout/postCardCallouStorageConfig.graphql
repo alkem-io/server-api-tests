@@ -3,7 +3,7 @@ fragment PostCardInCalloutOnCollaborationWithStorageConfig on Collaboration {
   calloutsSet {
     callouts(IDs: [$calloutId]) {
       id
-      contributions(filter: { postIDs: [$postId] }) {
+      contributions {
         post {
           id
           profile {

@@ -100,7 +100,7 @@ describe('Invitations', () => {
       baseScenario.space.id,
       TestUser.GLOBAL_ADMIN
     );
-    const data = getInv?.data?.space?.community?.roleSet.invitations;
+    const data = getInv?.data?.lookup?.space?.community?.roleSet.invitations;
 
     // Assert
     expect(data?.[0].state).toEqual('invited');
@@ -316,7 +316,7 @@ describe('Invitations-flows', () => {
     );
 
     // Assert
-    expect(spaceData?.data?.space?.authorization?.myPrivileges).toEqual(
+    expect(spaceData?.data?.lookup?.space?.authorization?.myPrivileges).toEqual(
       expect.arrayContaining(sorted_read_readAbout)
     );
   });
@@ -355,7 +355,7 @@ describe('Invitations-flows', () => {
     );
 
     // Assert
-    expect(spaceData?.data?.space?.authorization?.myPrivileges).toEqual(
+    expect(spaceData?.data?.lookup?.space?.authorization?.myPrivileges).toEqual(
       undefined
     );
   });

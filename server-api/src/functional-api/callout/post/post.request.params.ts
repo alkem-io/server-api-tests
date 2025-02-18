@@ -148,12 +148,9 @@ export const postDataPerSpaceCallout = async (
   spaceId: string,
   spaceCalloutId: string
 ): Promise<any[]> => {
-  const responseQuery = await getDataPerSpaceCallout(
-    spaceId,
-    spaceCalloutId
-  );
+  const responseQuery = await getDataPerSpaceCallout(spaceId, spaceCalloutId);
   const spacePosts =
-    responseQuery?.data?.space?.collaboration?.calloutsSet.callouts?.[0]?.contributions?.filter(
+    responseQuery?.data?.lookup?.space?.collaboration?.calloutsSet.callouts?.[0]?.contributions?.filter(
       (c: { post?: any }) => c.post !== null
     ) ?? [];
   return spacePosts;

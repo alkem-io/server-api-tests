@@ -360,7 +360,7 @@ describe('Upload visual to innovation space', () => {
       spaceName,
       baseScenario.organization.accountId
     );
-    const spaceData = resSpace?.data?.space;
+    const spaceData = resSpace?.data?.lookup?.space;
     spaceId = spaceData?.id ?? '';
 
     const innovationHubData = await createInnovationHub(

@@ -1,60 +1,119 @@
 query VirtualContributor($id: UUID!) {
-  virtualContributor(ID: $id) {
-    id
-    nameID
-    authorization {
+  lookup {
+    virtualContributor(ID: $id) {
       id
-      myPrivileges
-      __typename
-    }
-    account {
-      id
-      host {
+      nameID
+      authorization {
         id
-        profile {
+        myPrivileges
+        __typename
+      }
+      account {
+        id
+        host {
           id
-          displayName
-          tagline
-          avatar: visual(type: AVATAR) {
-            uri
-            __typename
-          }
-          location {
+          profile {
             id
-            city
-            country
+            displayName
+            tagline
+            avatar: visual(type: AVATAR) {
+              uri
+              __typename
+            }
+            location {
+              id
+              city
+              country
+              __typename
+            }
             __typename
           }
           __typename
         }
         __typename
       }
-      __typename
-    }
-    searchVisibility
-    listedInStore
-    aiPersona {
-      id
-      bodyOfKnowledgeID
-      bodyOfKnowledgeType
-      bodyOfKnowledge
-      __typename
-    }
-    profile {
-      id
-      displayName
-      description
-      tagline
-      tagsets {
-        ...TagsetDetails
+      settings {
+        privacy {
+          knowledgeBaseContentVisible
+          __typename
+        }
         __typename
       }
-      url
-
+      provider {
+        id
+        profile {
+          id
+          displayName
+          url
+          location {
+            country
+            city
+            __typename
+          }
+          avatar: visual(type: AVATAR) {
+            ...VisualFull
+            __typename
+          }
+          tagsets {
+            id
+            tags
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      searchVisibility
+      listedInStore
+      status
+      aiPersona {
+        id
+        bodyOfKnowledgeID
+        bodyOfKnowledgeType
+        bodyOfKnowledge
+        __typename
+      }
+      profile {
+        id
+        displayName
+        description
+        tagline
+        tagsets {
+          ...TagsetDetails
+          __typename
+        }
+        url
+        avatar: visual(type: AVATAR) {
+          ...VisualFull
+          __typename
+        }
+        references {
+          id
+          name
+          uri
+          description
+          __typename
+        }
+        __typename
+      }
       __typename
     }
     __typename
   }
+}
+
+fragment VisualFull on Visual {
+  id
+  uri
+  name
+  allowedTypes
+  aspectRatio
+  maxHeight
+  maxWidth
+  minHeight
+  minWidth
+  alternativeText
+  __typename
 }
 
 fragment TagsetDetails on Tagset {

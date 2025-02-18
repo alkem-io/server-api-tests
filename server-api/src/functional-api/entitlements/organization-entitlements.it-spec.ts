@@ -42,7 +42,7 @@ import {
   deleteSpace,
 } from '@functional-api/journey/space/space.request.params';
 import {
-  createVirtualContributorOnAccount,
+  createVirtualContributorOnAccountSpaceBased,
   deleteVirtualContributorOnAccount,
 } from '@functional-api/contributor-management/virtual-contributor/vc.request.params';
 import {
@@ -117,7 +117,9 @@ describe('Get Organization Account Authorization and License privileges ', () =>
       organizationAccountNoLicenses.license.availableEntitlements.sort()
     );
     expect(accountData?.license?.authorization?.myPrivileges).toEqual(
-      expect.arrayContaining(organizationAccountNoLicenses.license.authorization.myPrivileges)
+      expect.arrayContaining(
+        organizationAccountNoLicenses.license.authorization.myPrivileges
+      )
     );
     expect(accountData?.subscriptions).toEqual(
       organizationAccountNoLicenses.subscriptions
@@ -146,7 +148,9 @@ describe('Get Organization Account Authorization and License privileges ', () =>
       organizationAccountLicensePlus.license.availableEntitlements.sort()
     );
     expect(accountData?.license?.authorization?.myPrivileges).toEqual(
-      expect.arrayContaining(organizationAccountLicensePlus.license.authorization.myPrivileges)
+      expect.arrayContaining(
+        organizationAccountLicensePlus.license.authorization.myPrivileges
+      )
     );
     expect(accountData?.subscriptions).toEqual(
       organizationAccountLicensePlus.subscriptions
@@ -175,9 +179,9 @@ describe('Get Organization Account Authorization and License privileges ', () =>
         orgAccountId,
         TestUser.NON_SPACE_MEMBER
       );
-      spaceId = createSpace.data?.space.id ?? '';
+      spaceId = createSpace.data?.lookup?.space?.id ?? '';
 
-      const vcData = await createVirtualContributorOnAccount(
+      const vcData = await createVirtualContributorOnAccountSpaceBased(
         vcName,
         orgAccountId,
         spaceId,
@@ -205,14 +209,21 @@ describe('Get Organization Account Authorization and License privileges ', () =>
         organizationAccountLicensePlus1SpaceVCPack.license.availableEntitlements.sort()
       );
       expect(accountData?.license?.authorization?.myPrivileges).toEqual(
-        expect.arrayContaining(organizationAccountLicensePlus1SpaceVCPack.license.authorization.myPrivileges)
+        expect.arrayContaining(
+          organizationAccountLicensePlus1SpaceVCPack.license.authorization
+            .myPrivileges
+        )
       );
       expect(accountData?.subscriptions).toEqual(
         organizationAccountLicensePlus1SpaceVCPack.subscriptions
       );
-      expect(accountData?.spaces[0].license.authorization?.myPrivileges).toEqual(
-        expect.arrayContaining(organizationAccountLicensePlus1SpaceVCPack.spaces[0].license
-          .authorization.myPrivileges)
+      expect(
+        accountData?.spaces[0].license.authorization?.myPrivileges
+      ).toEqual(
+        expect.arrayContaining(
+          organizationAccountLicensePlus1SpaceVCPack.spaces[0].license
+            .authorization.myPrivileges
+        )
       );
       expect(accountData?.spaces[0].license?.entitlements).toEqual(
         expect.arrayContaining(

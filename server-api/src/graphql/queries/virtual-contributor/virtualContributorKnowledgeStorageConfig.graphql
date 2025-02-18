@@ -1,0 +1,15 @@
+query VirtualContributorKnowledgeStorageConfig($virtualContributorId: UUID!) {
+  lookup {
+    virtualContributor(ID: $virtualContributorId) {
+      id
+      knowledgeBase {
+        profile {
+          ...ProfileStorageConfig
+          __typename
+        }
+      }
+      __typename
+    }
+    __typename
+  }
+}

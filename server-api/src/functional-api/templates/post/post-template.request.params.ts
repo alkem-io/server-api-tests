@@ -61,7 +61,8 @@ export const updatePostTemplate = async (
 export const getPostTemplatesCountForSpace = async (spaceId: string) => {
   const template = await getSpaceData(spaceId);
   const spacePostTemplates =
-    template?.data?.space?.templatesManager?.templatesSet?.postTemplates ?? [];
+    template?.data?.lookup?.space?.templatesManager?.templatesSet
+      ?.postTemplates ?? [];
 
   return spacePostTemplates.length;
 };

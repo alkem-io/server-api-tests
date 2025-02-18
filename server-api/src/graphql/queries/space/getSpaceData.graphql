@@ -1,5 +1,7 @@
-query GetSpaceData($spaceId: UUID_NAMEID!) {
-  space(ID: $spaceId) {
-    ...SpaceData
+query GetSpaceData($spaceId: UUID!) {
+  lookup {
+    space(ID: $spaceId) {
+      ...SpaceData
+    }
   }
 }

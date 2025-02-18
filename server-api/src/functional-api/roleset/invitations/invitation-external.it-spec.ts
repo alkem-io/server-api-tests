@@ -214,7 +214,7 @@ describe('Invitations', () => {
       baseScenario.organization.accountId
     );
 
-    const secondSpaceData = responseSpace2?.data?.space;
+    const secondSpaceData = responseSpace2?.data?.lookup?.space;
     const secondSpaceId = secondSpaceData?.id ?? '';
     const secondSpaceRoleSetId = secondSpaceData?.community?.roleSet.id ?? '';
 

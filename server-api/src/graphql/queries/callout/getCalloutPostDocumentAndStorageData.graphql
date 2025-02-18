@@ -1,8 +1,8 @@
-query CalloutPostStorageConfig($postId: UUID_NAMEID!, $calloutId: UUID!) {
+query CalloutPostStorageConfig($calloutId: UUID!) {
   lookup {
     callout(ID: $calloutId) {
       id
-      contributions(filter: { postIDs: [$postId] }) {
+      contributions {
         post {
           id
           profile {

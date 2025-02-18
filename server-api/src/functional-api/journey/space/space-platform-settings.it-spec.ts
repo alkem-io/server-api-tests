@@ -116,7 +116,7 @@ describe('Update space platform settings', () => {
       );
 
       const spaceData = await getSpaceData(baseScenario.space.id);
-      const spaceSettings = spaceData?.data?.space;
+      const spaceSettings = spaceData?.data?.lookup?.space;
 
       // Assert
 
@@ -153,7 +153,7 @@ describe('Update space platform settings', () => {
             baseScenario.space.id,
             user
           );
-          const result = request?.data?.space;
+          const result = request?.data?.lookup?.space;
 
           // Assert
           expect(result?.authorization?.myPrivileges?.sort()).toEqual(
@@ -192,7 +192,7 @@ describe('Update space platform settings', () => {
             baseScenario.space.id,
             user
           );
-          const result = request?.data?.space;
+          const result = request?.data?.lookup?.space;
 
           // Assert
           expect(result?.authorization?.myPrivileges?.sort()).toEqual(

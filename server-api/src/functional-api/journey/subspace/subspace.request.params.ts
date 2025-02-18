@@ -1,13 +1,12 @@
 import { TestUser } from '@alkemio/tests-lib';
 import { getGraphqlClient } from '@utils/graphqlClient';
 import { graphqlErrorWrapper } from '@utils/graphql.wrapper';
-import { UniqueIDGenerator } from '@alkemio/tests-lib';;
+import { UniqueIDGenerator } from '@alkemio/tests-lib';
 const uniqueId = UniqueIDGenerator.getID();
 
 export const subspaceNameId = `chalNaId${uniqueId}`;
 
 export const getSubspaceData = async (
-  spaceId: string,
   subspaceId: string,
   userRole: TestUser = TestUser.GLOBAL_ADMIN
 ) => {
@@ -15,7 +14,6 @@ export const getSubspaceData = async (
   const callback = (authToken: string | undefined) =>
     graphqlClient.GetSubspacePage(
       {
-        spaceId,
         subspaceId,
       },
       {
@@ -56,7 +54,6 @@ export const createSubspace = async (
           subspaceNameId,
           parentId
         ),
-
       },
       {
         authorization: `Bearer ${authToken}`,

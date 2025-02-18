@@ -3,7 +3,7 @@ fragment LinkContributionInCalloutOnCollaborationWithStorageConfig on Collaborat
   calloutsSet {
     callouts(IDs: [$calloutId]) {
       id
-      contributions(filter: { linkIDs: [$linkId] }) {
+      contributions {
         link {
           id
           profile {

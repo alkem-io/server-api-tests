@@ -1,6 +1,6 @@
-query GetSubspacePage($spaceId: UUID_NAMEID!,$subspaceId: UUID_NAMEID!) {
-  space(ID: $spaceId) {
-    subspace(ID: $subspaceId) {
+query GetSubspacePage($subspaceId: UUID!) {
+  lookup {
+    space(ID: $subspaceId) {
       ...SubspaceL1Data
     }
   }

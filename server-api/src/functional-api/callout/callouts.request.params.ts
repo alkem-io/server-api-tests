@@ -6,7 +6,7 @@ import {
   CalloutType,
   CalloutVisibility,
 } from '@generated/alkemio-schema';
-import { UniqueIDGenerator } from '@alkemio/tests-lib';;
+import { UniqueIDGenerator } from '@alkemio/tests-lib';
 const uniqueId = UniqueIDGenerator.getID();
 
 export const defaultPostTemplate = {
@@ -67,6 +67,7 @@ export const createCalloutOnCalloutsSet = async (
       state?: CalloutState;
     };
     type?: CalloutType;
+    visibility?: CalloutVisibility;
     postTemplate?: {
       defaultDescription?: string;
       type?: string;

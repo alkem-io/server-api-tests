@@ -147,7 +147,7 @@ export const getPrivateSpaceData = async (
 export const spaceId = async (): Promise<any> => {
   const responseQuery = await getSpaceData();
 
-  const response = responseQuery?.data?.space.id;
+  const response = responseQuery?.data?.lookup?.space?.id;
   return response;
 };
 

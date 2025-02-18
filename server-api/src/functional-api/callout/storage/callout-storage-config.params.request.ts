@@ -21,7 +21,6 @@ export const calloutStorageConfig = async (
 };
 
 export const calloutPostCardStorageConfig = async (
-  postId: string,
   calloutId: string,
   userRole?: TestUser
 ) => {
@@ -29,7 +28,6 @@ export const calloutPostCardStorageConfig = async (
   const callback = (authToken: string | undefined) =>
     graphqlClient.CalloutPostStorageConfig(
       {
-        postId,
         calloutId,
       },
 
@@ -39,7 +37,6 @@ export const calloutPostCardStorageConfig = async (
   return graphqlErrorWrapper(callback, userRole);
 };
 export const calloutLinkContributionStorageConfig = async (
-  linkId: string,
   calloutId: string,
   userRole?: TestUser
 ) => {
@@ -47,7 +44,6 @@ export const calloutLinkContributionStorageConfig = async (
   const callback = (authToken: string | undefined) =>
     graphqlClient.CalloutLinkContributionStorageConfig(
       {
-        linkId,
         calloutId,
       },
 
@@ -67,7 +63,6 @@ export const calloutWhiteboardStorageConfig = async (
   const callback = (authToken: string | undefined) =>
     graphqlClient.CalloutWhiateboardStorageConfig(
       {
-        whiteboardId,
         calloutId,
       },
 

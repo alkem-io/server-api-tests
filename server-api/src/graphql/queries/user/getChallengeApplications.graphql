@@ -1,10 +1,7 @@
-query getSubspaceApplications(
-  $spaceId: UUID_NAMEID!
-  $subspaceId: UUID_NAMEID!
-) {
-  space(ID: $spaceId) {
-    id
-    subspace(ID: $subspaceId) {
+query getSubspaceApplications($subspaceId: UUID!) {
+  lookup {
+    space(ID: $subspaceId) {
+      id
       community {
         roleSet {
           id

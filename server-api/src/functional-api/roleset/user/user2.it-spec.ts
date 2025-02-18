@@ -148,17 +148,20 @@ describe('User roles', () => {
         baseScenario.organization.profile.displayName + '1',
         baseScenario.organization.nameId + '1'
       );
-      organization2Id = organization2Response?.data?.createOrganization.id ?? '';
-      organization2RoleSetId = organization2Response?.data?.createOrganization.roleSet.id ?? '';
+      organization2Id =
+        organization2Response?.data?.createOrganization.id ?? '';
+      organization2RoleSetId =
+        organization2Response?.data?.createOrganization.roleSet.id ?? '';
 
-      const orgAccountId = organization2Response?.data?.createOrganization.account?.id ?? '';
+      const orgAccountId =
+        organization2Response?.data?.createOrganization.account?.id ?? '';
 
       const spaceRes = await createSpaceAndGetData(
         spaceName2,
         spaceNameId2,
         orgAccountId
       );
-      const spaceData = spaceRes?.data?.space;
+      const spaceData = spaceRes?.data?.lookup?.space;
       spaceId = spaceData?.id ?? '';
       spaceRoleSetId = spaceData?.community?.roleSet.id ?? '';
 

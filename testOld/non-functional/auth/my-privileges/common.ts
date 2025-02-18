@@ -95,7 +95,7 @@ export const sorted__create_read_update_delete_grant_fileUp_fileDel_updateConten
   'UPDATE_CONTENT',
 ].sort();
 
-export const sorted__create_read_update_delete_grant_contribute_updateContentt = [
+export const sorted__create_read_update_delete_grant_contribute_updateContent = [
   ...sorted__create_read_update_delete_grant,
   'CONTRIBUTE',
   'UPDATE_CONTENT',
@@ -310,11 +310,7 @@ export const sorted__create_read_update_delete_grant_contribute = [
   'CONTRIBUTE',
 ].sort();
 
-export const sorted__create_read_update_delete_grant_contribute_updateContent = [
-  ...sorted__create_read_update_delete_grant,
-  'CONTRIBUTE',
-  'UPDATE_CONTENT',
-].sort();
+
 
 export const sorted__create_read_update_delete_grant_createPost_contribute = [
   ...sorted__create_read_update_delete_grant,

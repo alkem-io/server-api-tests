@@ -1,8 +1,8 @@
-query CalloutWhiateboardStorageConfig($whiteboardId: UUID_NAMEID!, $calloutId: UUID!) {
+query CalloutWhiateboardStorageConfig($calloutId: UUID!) {
   lookup {
     callout(ID: $calloutId) {
       id
-      contributions(filter: { whiteboardIDs: [$whiteboardId] }) {
+      contributions {
         whiteboard {
           id
           profile {

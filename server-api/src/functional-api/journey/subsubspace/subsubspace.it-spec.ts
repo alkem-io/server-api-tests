@@ -61,12 +61,8 @@ describe('Opportunities', () => {
     subsubspaceId = createSubsubspaceData?.id ?? '';
 
     // Query Subsubspace data
-    const requestQuerySubsubspace = await getSubspaceData(
-      baseScenario.space.id,
-      subsubspaceId
-    );
-    const requestSubsubspaceData =
-      requestQuerySubsubspace?.data?.space.subspace;
+    const requestQuerySubsubspace = await getSubspaceData(subsubspaceId);
+    const requestSubsubspaceData = requestQuerySubsubspace?.data?.lookup?.space;
 
     // Assert
     expect(createSubsubspaceData).toEqual(requestSubsubspaceData);
@@ -89,12 +85,8 @@ describe('Opportunities', () => {
     const updateSubsubspaceData = responseUpdateSubsubspace?.data?.updateSpace;
 
     // Query Subsubspace data
-    const requestQuerySubsubspace = await getSubspaceData(
-      baseScenario.space.id,
-      subsubspaceId
-    );
-    const requestSubsubspaceData =
-      requestQuerySubsubspace?.data?.space.subspace;
+    const requestQuerySubsubspace = await getSubspaceData(subsubspaceId);
+    const requestSubsubspaceData = requestQuerySubsubspace?.data?.lookup?.space;
 
     // Assert
     expect(updateSubsubspaceData?.profile).toEqual(
@@ -121,10 +113,7 @@ describe('Opportunities', () => {
     const removeSubsubspaceResponse = await deleteSpace(subsubspaceId);
 
     // Query Subsubspace data
-    const requestQuerySubsubspace = await getSubspaceData(
-      baseScenario.space.id,
-      subsubspaceId
-    );
+    const requestQuerySubsubspace = await getSubspaceData(subsubspaceId);
 
     // Assert
     expect(responseCreateSubsubspaceOnSubspace.status).toBe(200);
@@ -132,7 +121,7 @@ describe('Opportunities', () => {
       subsubspaceId
     );
     expect(requestQuerySubsubspace?.error?.errors[0].message).toEqual(
-      `Unable to find subspace with ID: '${subsubspaceId}'`
+      `Unable to find Space with ID: ${subsubspaceId} using options 'undefined`
     );
   });
 

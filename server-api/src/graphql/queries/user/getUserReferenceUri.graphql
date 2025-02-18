@@ -1,4 +1,4 @@
-query GetUserReferenceUri($userId: UUID_NAMEID_EMAIL!) {
+query GetUserReferenceUri($userId: UUID!) {
   user(ID: $userId) {
     nameID
     profile {

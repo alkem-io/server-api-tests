@@ -27,7 +27,7 @@ import {
   deleteSpace,
 } from '@functional-api/journey/space/space.request.params';
 import {
-  createVirtualContributorOnAccount,
+  createVirtualContributorOnAccountSpaceBased,
   deleteVirtualContributorOnAccount,
 } from '@functional-api/contributor-management/virtual-contributor/vc.request.params';
 import { getAccountMainEntities } from '../account/account.params.request';
@@ -57,7 +57,7 @@ describe('Functional tests - VC', () => {
     const vcs = spaceData.data?.lookup.account?.virtualContributors;
     for (const vc of vcs || []) {
       const vcId = vc.id;
-     await deleteVirtualContributorOnAccount(vcId, TestUser.GLOBAL_ADMIN);
+      await deleteVirtualContributorOnAccount(vcId, TestUser.GLOBAL_ADMIN);
     }
 
     const spaces = spaceData.data?.lookup.account?.spaces;
@@ -117,7 +117,7 @@ describe('Functional tests - VC', () => {
         const spaceId = createSpace.data?.createSpace.id ?? '';
 
         // Act
-        const createVc = await createVirtualContributorOnAccount(
+        const createVc = await createVirtualContributorOnAccountSpaceBased(
           vcName,
           TestUserManager.users.nonSpaceMember.accountId,
           spaceId,
@@ -146,7 +146,7 @@ describe('Functional tests - VC', () => {
       const maxVCs = 3;
       for (let i = 0; i < maxVCs; i++) {
         const tempVcName = `temp-vc-${i}-${uniqueId}`;
-        await createVirtualContributorOnAccount(
+        await createVirtualContributorOnAccountSpaceBased(
           tempVcName,
           TestUserManager.users.nonSpaceMember.accountId,
           spaceId,
@@ -156,7 +156,7 @@ describe('Functional tests - VC', () => {
       const response = await getMyEntitlementsQuery(TestUser.NON_SPACE_MEMBER);
 
       // // Act
-      const createVc = await createVirtualContributorOnAccount(
+      const createVc = await createVirtualContributorOnAccountSpaceBased(
         vcName,
         TestUserManager.users.nonSpaceMember.accountId,
         spaceId,

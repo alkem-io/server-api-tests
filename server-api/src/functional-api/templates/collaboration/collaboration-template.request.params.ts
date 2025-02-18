@@ -2,9 +2,7 @@
 import { TestUser } from '@alkemio/tests-lib';
 import { getGraphqlClient } from '@utils/graphqlClient';
 import { graphqlErrorWrapper } from '@utils/graphql.wrapper';
-import {
-  templateDefaultInfo,
-} from './collaboration-template-testdata';
+import { templateDefaultInfo } from './collaboration-template-testdata';
 import { getSpaceData } from '../../journey/space/space.request.params';
 
 export const getLifeCycleTemplateForSpaceByLifecycleTitle = async (
@@ -13,7 +11,7 @@ export const getLifeCycleTemplateForSpaceByLifecycleTitle = async (
 ) => {
   const templatesPerSpace = await getSpaceData(spaceId);
   const allTemplates =
-    templatesPerSpace?.data?.space?.templatesManager?.templatesSet
+    templatesPerSpace?.data?.lookup?.space?.templatesManager?.templatesSet
       ?.collaborationTemplates ?? [];
 
   const filteredTemplate = allTemplates?.filter(item => {
@@ -28,7 +26,7 @@ export const getCollaborationTemplatesCountForSpace = async (
 ) => {
   const template = await getSpaceData(spaceId);
   const spaceCollaborationTemplates =
-    template?.data?.space?.templatesManager?.templatesSet
+    template?.data?.lookup?.space?.templatesManager?.templatesSet
       ?.collaborationTemplates.length;
 
   return spaceCollaborationTemplates;
@@ -53,9 +51,8 @@ export const getCollaborationTemplatesCountByTemplateSetId = async (
 };
 
 export const getCollaborationTemplatesCount = async (templateSetId: string) => {
-  const templates = await getCollaborationTemplatesCountByTemplateSetId(
-    templateSetId
-  );
+  const templates =
+    await getCollaborationTemplatesCountByTemplateSetId(templateSetId);
   const collaborationTemplatesCount =
     templates?.data?.lookup?.templatesSet?.collaborationTemplatesCount ?? '';
 

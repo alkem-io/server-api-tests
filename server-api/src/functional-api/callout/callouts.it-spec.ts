@@ -101,7 +101,8 @@ describe('Callouts - CRUD', () => {
         calloutId
       );
       const data =
-        postsData?.data?.space.collaboration?.calloutsSet.callouts?.[0];
+        postsData?.data?.lookup?.space?.collaboration?.calloutsSet
+          .callouts?.[0];
 
       // Assert
       expect(data).toEqual(calloutDataCreate);
@@ -135,7 +136,8 @@ describe('Callouts - CRUD', () => {
         calloutId
       );
       const calloutData =
-        calloutReq.data?.space.collaboration?.calloutsSet.callouts?.[0];
+        calloutReq.data?.lookup?.space?.collaboration?.calloutsSet
+          .callouts?.[0];
 
       // Assert
       expect(calloutData).toEqual(resUpdate?.data?.updateCallout);
@@ -155,7 +157,8 @@ describe('Callouts - CRUD', () => {
         calloutId
       );
       const calloutData =
-        calloutReq.data?.space.collaboration?.calloutsSet.callouts?.[0];
+        calloutReq.data?.lookup?.space?.collaboration?.calloutsSet
+          .callouts?.[0];
       // Assert
       expect(calloutData?.visibility).toEqual(CalloutVisibility.Published);
     });

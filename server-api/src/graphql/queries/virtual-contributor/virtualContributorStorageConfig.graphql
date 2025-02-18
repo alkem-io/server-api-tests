@@ -1,0 +1,13 @@
+query VirtualContributorStorageConfig($virtualContributorId: UUID!) {
+  lookup {
+    virtualContributor(ID: $virtualContributorId) {
+      id
+      profile {
+        ...ProfileStorageConfig
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

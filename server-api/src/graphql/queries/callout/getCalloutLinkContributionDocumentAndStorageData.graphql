@@ -1,11 +1,8 @@
-query CalloutLinkContributionStorageConfig(
-  $linkId: UUID!
-  $calloutId: UUID!
-) {
+query CalloutLinkContributionStorageConfig($calloutId: UUID!) {
   lookup {
     callout(ID: $calloutId) {
       id
-      contributions(filter: { linkIDs: [$linkId] }) {
+      contributions {
         link {
           id
           profile {
@@ -21,4 +18,3 @@ query CalloutLinkContributionStorageConfig(
     __typename
   }
 }
-

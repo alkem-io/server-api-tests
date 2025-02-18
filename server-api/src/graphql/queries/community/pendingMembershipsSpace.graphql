@@ -1,11 +1,16 @@
-query PendingMembershipsSpace($spaceId: UUID_NAMEID!, $fetchDetails: Boolean! = false) {
-  space(ID: $spaceId) {
-    id
-    nameID
-    profile {
-      ...PendingMembershipsJourneyProfile
+query PendingMembershipsSpace(
+  $spaceId: UUID!
+  $fetchDetails: Boolean! = false
+) {
+  lookup {
+    space(ID: $spaceId) {
+      id
+      nameID
+      profile {
+        ...PendingMembershipsJourneyProfile
+      }
+      __typename
     }
-    __typename
   }
 }
 

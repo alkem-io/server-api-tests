@@ -128,7 +128,8 @@ describe('Callouts - Close State', () => {
       baseScenario.space.id,
       calloutId
     );
-    const data = postsData.data?.space.collaboration?.calloutsSet.callouts?.[0];
+    const data =
+      postsData.data?.lookup?.space?.collaboration?.calloutsSet.callouts?.[0];
 
     // Assert
     expect(data?.contributionPolicy.state).toEqual(CalloutState.Closed);
@@ -152,7 +153,8 @@ describe('Callouts - Close State', () => {
       baseScenario.space.id,
       calloutId
     );
-    const data = postsData.data?.space.collaboration?.calloutsSet.callouts?.[0];
+    const data =
+      postsData.data?.lookup?.space?.collaboration?.calloutsSet.callouts?.[0];
 
     // Assert
     expect(data?.contributionPolicy.state).toEqual(CalloutState.Closed);

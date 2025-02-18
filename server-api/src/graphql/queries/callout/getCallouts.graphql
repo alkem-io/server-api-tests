@@ -1,7 +1,7 @@
 query GetCallouts(
   $calloutsSetId: UUID!
   $groups: [String!]
-  $calloutIds: [UUID_NAMEID!]
+  $calloutIds: [UUID!]
 ) {
   lookup {
     calloutsSet(ID: $calloutsSetId) {

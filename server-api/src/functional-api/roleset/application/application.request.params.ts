@@ -69,7 +69,6 @@ export const getSubspaceApplications = async (
   const callback = (authToken: string | undefined) =>
     graphqlClient.getSubspaceApplications(
       {
-        spaceId,
         subspaceId,
       },
       {

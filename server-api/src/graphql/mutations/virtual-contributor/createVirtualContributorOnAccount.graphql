@@ -3,9 +3,34 @@ mutation CreateVirtualContributorOnAccount(
 ) {
   createVirtualContributor(virtualContributorData: $virtualContributorData) {
     id
-    nameID
     profile {
-      ...ProfileData
+      id
+      url
+      __typename
+    }
+    knowledgeBase {
+      id
+      calloutsSet {
+        id
+        authorization {
+          myPrivileges
+        }
+        callouts {
+          id
+          framing {
+            id
+            profile {
+              id
+              displayName
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
     }
     __typename
   }

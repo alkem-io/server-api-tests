@@ -38,7 +38,7 @@ describe('Space entity', () => {
       spaceNameId,
       orgAccountId
     );
-    spaceId = responseEco?.data?.space.id ?? '';
+    spaceId = responseEco?.data?.lookup?.space?.id ?? '';
   });
 
   afterAll(async () => {
@@ -54,11 +54,13 @@ describe('Space entity', () => {
       orgAccountId
     );
 
-    const spaceIdTwo = spaceData?.data?.space.id ?? '';
+    const spaceIdTwo = spaceData?.data?.lookup?.space?.id ?? '';
 
     // Assert
     expect(spaceData.status).toBe(200);
-    expect(spaceData?.data?.space.profile.displayName).toEqual(spaceName + 'a');
+    expect(spaceData?.data?.lookup?.space?.profile.displayName).toEqual(
+      spaceName + 'a'
+    );
 
     await deleteSpace(spaceIdTwo);
   });
@@ -85,7 +87,7 @@ describe('Space entity', () => {
       spaceNameId + 'c',
       orgAccountId
     );
-    const spaceIdTwo = response?.data?.space.id ?? '';
+    const spaceIdTwo = response?.data?.lookup?.space?.id ?? '';
 
     // Act
     const responseUpdate = await updateSpacePlatformSettings(
@@ -110,7 +112,7 @@ describe('Space entity', () => {
       spaceNameId + 'c',
       orgAccountId
     );
-    const spaceIdTwo = response?.data?.space.id ?? '';
+    const spaceIdTwo = response?.data?.lookup?.space?.id ?? '';
     // Act
     await deleteSpace(spaceIdTwo);
     const spacesAfter = await getSpacesData();

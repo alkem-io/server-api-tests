@@ -81,7 +81,7 @@ describe('Communities', () => {
         TestUser.GLOBAL_ADMIN
       );
       const retrievedMessage =
-        spaceDataSender?.data?.space?.community?.communication?.updates
+        spaceDataSender?.data?.lookup?.space?.community?.communication?.updates
           .messages ?? [];
 
       const spaceDataReaderMember = await getSpaceData(
@@ -90,8 +90,8 @@ describe('Communities', () => {
       );
 
       const getMessageReaderMember =
-        spaceDataReaderMember?.data?.space?.community?.communication?.updates
-          .messages ?? [];
+        spaceDataReaderMember?.data?.lookup?.space?.community?.communication
+          ?.updates.messages ?? [];
       await delay(600);
       const spaceDataReader = await getSpaceData(
         baseScenario.space.id,
@@ -134,7 +134,7 @@ describe('Communities', () => {
         TestUser.GLOBAL_ADMIN
       );
       const retrievedMessage =
-        spaceDataSender?.data?.space?.community?.communication?.updates
+        spaceDataSender?.data?.lookup?.space?.community?.communication?.updates
           .messages ?? [];
 
       const spaceDataReaderMember = await getSpaceData(
@@ -142,16 +142,16 @@ describe('Communities', () => {
         TestUser.SPACE_MEMBER
       );
       const getMessageReaderMember =
-        spaceDataReaderMember?.data?.space?.community?.communication?.updates
-          .messages ?? [];
+        spaceDataReaderMember?.data?.lookup?.space?.community?.communication
+          ?.updates.messages ?? [];
 
       const spaceDataReaderNotMemberIn = await getSpaceData(
         baseScenario.space.id,
         TestUser.NON_SPACE_MEMBER
       );
       const spaceDataReaderNotMember =
-        spaceDataReaderNotMemberIn?.data?.space?.community?.communication
-          ?.updates.messages ?? [];
+        spaceDataReaderNotMemberIn?.data?.lookup?.space?.community
+          ?.communication?.updates.messages ?? [];
 
       // Assert
       expect(retrievedMessage).toHaveLength(1);
@@ -193,7 +193,7 @@ describe('Communities', () => {
 
       const spaceDataSender = await getSpaceData(baseScenario.space.id);
       const retrievedMessage =
-        spaceDataSender?.data?.space?.community?.communication?.updates
+        spaceDataSender?.data?.lookup?.space?.community?.communication?.updates
           .messages ?? [];
       // Assert
       expect(retrievedMessage).toHaveLength(1);
@@ -230,7 +230,7 @@ describe('Communities', () => {
 
       const spaceDataSender = await getSpaceData(baseScenario.space.id);
       const retrievedMessage =
-        spaceDataSender?.data?.space?.community?.communication?.updates
+        spaceDataSender?.data?.lookup?.space?.community?.communication?.updates
           .messages;
 
       // Assert

@@ -32,7 +32,7 @@ import {
   deleteSpace,
 } from '@functional-api/journey/space/space.request.params';
 import {
-  createVirtualContributorOnAccount,
+  createVirtualContributorOnAccountSpaceBased,
   deleteVirtualContributorOnAccount,
 } from '@functional-api/contributor-management/virtual-contributor/vc.request.params';
 
@@ -147,9 +147,9 @@ describe('Get User Account Authorization and License privileges ', () => {
         TestUserManager.users.nonSpaceMember.accountId,
         TestUser.NON_SPACE_MEMBER
       );
-      spaceId = createSpace.data?.space.id ?? '';
+      spaceId = createSpace.data?.lookup?.space?.id ?? '';
 
-      const vcData = await createVirtualContributorOnAccount(
+      const vcData = await createVirtualContributorOnAccountSpaceBased(
         vcName,
         TestUserManager.users.nonSpaceMember.accountId,
         spaceId,
@@ -246,9 +246,9 @@ describe('Get User Account Authorization and License privileges ', () => {
         TestUserManager.users.nonSpaceMember.accountId,
         TestUser.NON_SPACE_MEMBER
       );
-      spaceId = createSpace.data?.space.id ?? '';
+      spaceId = createSpace.data?.lookup?.space?.id ?? '';
 
-      const vcData = await createVirtualContributorOnAccount(
+      const vcData = await createVirtualContributorOnAccountSpaceBased(
         vcName,
         TestUserManager.users.nonSpaceMember.accountId,
         spaceId,

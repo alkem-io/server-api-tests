@@ -53,7 +53,7 @@ describe('Lifecycle', () => {
 
       const spaceCommunityIds = await getSpaceData(baseScenario.space.id);
       spaceRoleSetId =
-        spaceCommunityIds?.data?.space?.community?.roleSet.id ?? '';
+        spaceCommunityIds?.data?.lookup?.space?.community?.roleSet.id ?? '';
 
       applicationData = await createApplication(spaceRoleSetId);
       applicationId =

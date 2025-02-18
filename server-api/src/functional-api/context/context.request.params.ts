@@ -3,7 +3,6 @@ import { graphqlErrorWrapper } from '@utils/graphql.wrapper';
 import { getGraphqlClient } from '@utils/graphqlClient';
 
 export const getContextData = async (
-  spaceId: string,
   subspaceId?: string,
   userRole: TestUser = TestUser.GLOBAL_ADMIN
 ) => {
@@ -11,7 +10,6 @@ export const getContextData = async (
   const callback = (authToken: string | undefined) =>
     graphqlClient.GetContextData(
       {
-        spaceId,
         subspaceId: subspaceId as string,
       },
       {

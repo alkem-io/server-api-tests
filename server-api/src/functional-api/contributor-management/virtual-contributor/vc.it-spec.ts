@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import '@utils/array.matcher';
 import {
-  createVirtualContributorOnAccount,
+  createVirtualContributorOnAccountSpaceBased,
   deleteVirtualContributorOnAccount,
   queryVCData,
   removeVirtualContributorFromRoleSet,
@@ -97,7 +97,7 @@ beforeAll(async () => {
     spaceNameIdVC,
     TestUserManager.users.betaTester.accountId
   );
-  const vcSpaceData = responceVcSpace?.data?.space;
+  const vcSpaceData = responceVcSpace?.data?.lookup?.space;
   vcSpaceId = vcSpaceData?.id ?? '';
   vcSpaceAccountId = vcSpaceData?.account?.id ?? '';
 
@@ -106,7 +106,7 @@ beforeAll(async () => {
   const vcL1Data = responseVCL1?.data?.createSubspace;
   l1VCId = vcL1Data?.id ?? '';
 
-  const vcData = await createVirtualContributorOnAccount(
+  const vcData = await createVirtualContributorOnAccountSpaceBased(
     vcName,
     vcSpaceAccountId,
     l1VCId,
@@ -177,7 +177,7 @@ describe('Virtual Contributor', () => {
 
   test('query virtual contributor data', async () => {
     // Act
-    const vcData = await createVirtualContributorOnAccount(
+    const vcData = await createVirtualContributorOnAccountSpaceBased(
       vcName,
       vcSpaceAccountId,
       l1VCId,
@@ -188,11 +188,11 @@ describe('Virtual Contributor', () => {
     const vcDataQuery = await queryVCData(vcId);
 
     // Assert
-    expect(vcDataQuery?.data?.virtualContributor.account?.id).toEqual(
+    expect(vcDataQuery?.data?.lookup.virtualContributor?.account?.id).toEqual(
       vcSpaceAccountId
     );
     expect(
-      vcDataQuery?.data?.virtualContributor.aiPersona?.bodyOfKnowledgeID
+      vcDataQuery?.data?.lookup.virtualContributor?.aiPersona?.bodyOfKnowledgeID
     ).toEqual(l1VCId);
   });
 });

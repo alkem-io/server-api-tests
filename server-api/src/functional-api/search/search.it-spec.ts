@@ -780,7 +780,7 @@ describe('Search', () => {
         secondSpaceName,
         baseScenario.organization.id
       );
-      secondSpaceId = res.data?.space.id ?? '';
+      secondSpaceId = res.data?.lookup?.space?.id ?? '';
     });
 
     afterAll(async () => {

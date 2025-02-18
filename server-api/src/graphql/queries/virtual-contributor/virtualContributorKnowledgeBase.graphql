@@ -1,0 +1,30 @@
+query VirtualContributorKnowledgeBase($id: UUID!) {
+  virtualContributor(ID: $id) {
+    id
+    knowledgeBase {
+      id
+      authorization {
+        id
+        myPrivileges
+        __typename
+      }
+      profile {
+        id
+        displayName
+        description
+        __typename
+      }
+      calloutsSet {
+        authorization {
+          id
+          myPrivileges
+          __typename
+        }
+        id
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

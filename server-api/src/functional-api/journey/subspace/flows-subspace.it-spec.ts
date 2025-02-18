@@ -45,18 +45,17 @@ describe('Flows subspace', () => {
   // ToDo - update test - failing when run in parallel with other suites
   test.skip('should not result unassigned users to a subspace', async () => {
     // Act
-    const responseGroupQuery = await getSubspaceData(
-      baseScenario.space.id,
-      subspaceId
-    );
+    const responseGroupQuery = await getSubspaceData(subspaceId);
 
     // Assert
     expect(responseGroupQuery.status).toBe(200);
     expect(
-      responseGroupQuery.data?.space.subspace?.community?.roleSet.memberUsers
+      responseGroupQuery.data?.lookup?.space?.subspaces[0]?.community?.roleSet
+        .memberUsers
     ).toHaveLength(1);
     expect(
-      responseGroupQuery.data?.space.subspace?.community?.roleSet.leadUsers
+      responseGroupQuery.data?.lookup?.space?.subspaces[0]?.community?.roleSet
+        .leadUsers
     ).toHaveLength(1);
   });
 

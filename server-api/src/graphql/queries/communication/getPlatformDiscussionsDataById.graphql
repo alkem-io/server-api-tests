@@ -1,4 +1,4 @@
-query GetPlatformDiscussionsDataById($discussionId: String!) {
+query GetPlatformDiscussionsDataById($discussionId: UUID!) {
   platform {
     forum {
       id

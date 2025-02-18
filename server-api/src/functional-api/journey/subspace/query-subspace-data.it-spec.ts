@@ -72,13 +72,10 @@ beforeEach(async () => {
 describe('Query Subspace data', () => {
   test('should query community through subspace', async () => {
     // Act
-    const responseQueryData = await getSubspaceData(
-      baseScenario.space.id,
-      subspaceId
-    );
+    const responseQueryData = await getSubspaceData(subspaceId);
 
     // Assert
-    expect(responseQueryData.data?.space.subspace?.profile.displayName).toEqual(
+    expect(responseQueryData.data?.lookup?.space?.profile.displayName).toEqual(
       subspaceName
     );
   });
@@ -96,20 +93,17 @@ describe('Query Subspace data', () => {
       responseCreateSubsubspaceOnSubspace.data?.createSubspace.id ?? '';
 
     // Query Subsubspace data through Subspace query
-    const responseQueryData = await getSubspaceData(
-      baseScenario.space.id,
-      subspaceId
-    );
+    const responseQueryData = await getSubspaceData(subspaceId);
 
     // Assert
-    expect(responseQueryData.data?.space.subspace?.subspaces).toHaveLength(1);
+    expect(responseQueryData.data?.lookup?.space?.subspaces).toHaveLength(1);
     expect(
-      responseQueryData.data?.space.subspace?.subspaces?.[0].profile.displayName
+      responseQueryData.data?.lookup?.space?.subspaces[0].profile.displayName
     ).toEqual(subsubspaceName);
-    expect(
-      responseQueryData.data?.space.subspace?.subspaces?.[0].nameID
-    ).toEqual(subsubspaceNameId);
-    expect(responseQueryData.data?.space.subspace?.subspaces?.[0].id).toEqual(
+    expect(responseQueryData.data?.lookup?.space?.subspaces[0].nameID).toEqual(
+      subsubspaceNameId
+    );
+    expect(responseQueryData.data?.lookup?.space?.subspaces[0].id).toEqual(
       subsubspaceId
     );
   });
@@ -130,11 +124,8 @@ describe('Query Subspace data', () => {
       responseCreateSubsubspaceOnSubspace.data?.createSubspace.id ?? '';
 
     // Query Subsubspace data
-    const requestQuerySubsubspace = await getSubspaceData(
-      baseScenario.space.id,
-      subsubspaceId
-    );
-    const requestSubsubspaceData = requestQuerySubsubspace.data?.space.subspace;
+    const requestQuerySubsubspace = await getSubspaceData(subsubspaceId);
+    const requestSubsubspaceData = requestQuerySubsubspace.data?.lookup?.space;
 
     // Assert
     expect(createSubsubspaceData).toEqual(requestSubsubspaceData);
@@ -155,19 +146,16 @@ describe('Query Subspace data', () => {
     const updatedSubspace = response.data?.updateSpace;
 
     // Act
-    const getSubspaceDatas = await getSubspaceData(
-      baseScenario.space.id,
-      subspaceId
-    );
+    const getSubspaceDatas = await getSubspaceData(subspaceId);
 
     // Assert
     expect(updatedSubspace?.profile.displayName).toEqual(
       subspaceName + 'change'
     );
-    expect(getSubspaceDatas.data?.space.subspace?.profile.displayName).toEqual(
+    expect(getSubspaceDatas.data?.lookup?.space?.profile.displayName).toEqual(
       subspaceName + 'change'
     );
-    expect(getSubspaceDatas.data?.space.subspace?.context.impact).toEqual(
+    expect(getSubspaceDatas.data?.lookup?.space?.context.impact).toEqual(
       context.impact
     );
   });

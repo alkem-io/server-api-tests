@@ -1,0 +1,45 @@
+mutation UpdateVirtualContributorSettings(
+  $settingsData: UpdateVirtualContributorSettingsInput!
+) {
+  updateVirtualContributorSettings(settingsData: $settingsData) {
+    id
+    listedInStore
+    status
+    searchVisibility
+    settings {
+      privacy {
+        knowledgeBaseContentVisible
+        __typename
+      }
+      __typename
+    }
+    profile {
+      id
+      tagline
+      tagsets {
+        ...TagsetDetails
+        __typename
+      }
+      displayName
+      description
+      references {
+        id
+        name
+        uri
+        description
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment TagsetDetails on Tagset {
+  id
+  name
+  tags
+  allowedValues
+  type
+  __typename
+}

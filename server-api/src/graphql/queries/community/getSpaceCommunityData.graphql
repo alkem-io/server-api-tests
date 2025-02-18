@@ -1,13 +1,14 @@
-query getSpaceCommunity($spaceId: UUID_NAMEID!) {
-  space(ID: $spaceId) {
-    id
-    community {
+query getSpaceCommunity($spaceId: UUID!) {
+  lookup {
+    space(ID: $spaceId) {
       id
-      roleSet {
+      community {
         id
-        ...MembersAndLeadsData
+        roleSet {
+          id
+          ...MembersAndLeadsData
+        }
       }
     }
   }
 }
-
