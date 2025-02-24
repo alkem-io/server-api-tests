@@ -2,14 +2,14 @@ import { graphqlErrorWrapper } from '@utils/graphql.wrapper';
 import { getGraphqlClient } from '@utils/graphqlClient';
 import { TestUser } from '@alkemio/tests-lib';
 
-import { UniqueIDGenerator } from '@alkemio/tests-lib';;
+import { UniqueIDGenerator } from '@alkemio/tests-lib';
 const uniqueId = UniqueIDGenerator.getID();
 
 export const createSubspace = async (
   subspaceName: string,
   subspaceNameId: string,
   parentId: string,
-  userRole: TestUser = TestUser.GLOBAL_ADMIN,
+  userRole: TestUser = TestUser.GLOBAL_ADMIN
 ) => {
   const graphqlClient = getGraphqlClient();
   const callback = (authToken: string | undefined) =>
@@ -18,7 +18,7 @@ export const createSubspace = async (
         subspaceData: subspaceVariablesData(
           subspaceName,
           subspaceNameId,
-          parentId,
+          parentId
         ),
       },
       {
@@ -32,30 +32,29 @@ export const createSubspace = async (
 export const subspaceVariablesData = (
   displayName: string,
   nameId: string,
-  spaceId: string,
+  spaceId: string
 ) => {
   const variables = {
     nameID: nameId,
     spaceID: spaceId,
-    profileData: {
-      displayName,
-      tagline: 'test tagline' + uniqueId,
-      description: 'test description' + uniqueId,
-      referencesData: [
-        {
-          name: 'test video' + uniqueId,
-          uri: 'https://youtu.be/-wGlzcjs',
-          description: 'dest description' + uniqueId,
-        },
-      ],
-    },
-    context: {
-      vision: 'test vision' + uniqueId,
-      impact: 'test impact' + uniqueId,
-      who: 'test who' + uniqueId,
+    about: {
+      profileData: {
+        displayName,
+        tagline: 'test tagline' + uniqueId,
+        description: 'test description' + uniqueId,
+        referencesData: [
+          {
+            name: 'test video' + uniqueId,
+            uri: 'https://youtu.be/-wGlzcjs',
+            description: 'dest description' + uniqueId,
+          },
+        ],
+        why: 'test vision' + uniqueId,
+        who: 'test who' + uniqueId,
+      },
     },
     collaborationData: {
-      'addTutorialCallouts': true,
+      addTutorialCallouts: true,
       calloutsSetData: {},
     },
   };

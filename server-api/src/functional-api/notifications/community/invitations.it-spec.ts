@@ -165,7 +165,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.space.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.space.about.profile.displayName}`,
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])
@@ -194,7 +194,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.space.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.space.about.profile.displayName}`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])
@@ -223,7 +223,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.subspace.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.subspace.about.profile.displayName}`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])
@@ -276,7 +276,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.subspace.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.subspace.about.profile.displayName}`,
           toAddresses: [TestUserManager.users.spaceMember.email],
         }),
       ])
@@ -305,7 +305,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.subsubspace.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.subsubspace.about.profile.displayName}`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])

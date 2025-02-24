@@ -12,8 +12,10 @@ mutation CreateInnovationHub($input: CreateInnovationHubOnAccountInput!) {
     spaceListFilter {
       id
       nameID
-      profile {
-        displayName
+      about {
+        profile {
+          displayName
+        }
       }
     }
     spaceVisibilityFilter

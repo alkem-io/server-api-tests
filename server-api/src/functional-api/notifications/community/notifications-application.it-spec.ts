@@ -159,15 +159,15 @@ describe('Notifications - applications', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.space.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.globalAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.space.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.spaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName} - Your Application to join was received!`,
+          subject: `${baseScenario.space.about.profile.displayName} - Your Application to join was received!`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])
@@ -199,15 +199,15 @@ describe('Notifications - applications', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `${baseScenario.subspace.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.subspace.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.globalAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.subspace.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.subspace.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.subspaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.subspace.profile.displayName} - Your Application to join was received!`,
+          subject: `${baseScenario.subspace.about.profile.displayName} - Your Application to join was received!`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])

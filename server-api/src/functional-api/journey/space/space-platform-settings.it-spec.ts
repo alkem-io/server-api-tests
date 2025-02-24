@@ -39,6 +39,9 @@ let baseScenario: OrganizationWithSpaceModel;
 const scenarioConfig: TestScenarioConfig = {
   name: 'space-platform-settings',
   space: {
+    collaboration: {
+      addTutorialCallouts: false,
+    },
     community: {
       admins: [TestUser.SPACE_ADMIN],
       members: [

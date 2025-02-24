@@ -18,7 +18,7 @@ export let preferencesDiscussionCommentCreatedConfig: any[] = [];
 const expectedDataSpace = async (toAddresses: any[]) => {
   return expect.arrayContaining([
     expect.objectContaining({
-      subject: `${baseScenario.space.profile.displayName} - New comment received on Callout \u0026#34;Space Post Callout\u0026#34;, have a look!`,
+      subject: `${baseScenario.space.about.profile.displayName} - New comment received on Callout \u0026#34;Space Post Callout\u0026#34;, have a look!`,
       toAddresses,
     }),
   ]);
@@ -27,7 +27,7 @@ const expectedDataSpace = async (toAddresses: any[]) => {
 const expectedDataChal = async (toAddresses: any[]) => {
   return expect.arrayContaining([
     expect.objectContaining({
-      subject: `${baseScenario.subspace.profile.displayName} - New comment received on Callout \u0026#34;Space Post Callout\u0026#34;, have a look!`,
+      subject: `${baseScenario.subspace.about.profile.displayName} - New comment received on Callout \u0026#34;Space Post Callout\u0026#34;, have a look!`,
       toAddresses,
     }),
   ]);
@@ -36,7 +36,7 @@ const expectedDataChal = async (toAddresses: any[]) => {
 const expectedDataOpp = async (toAddresses: any[]) => {
   return expect.arrayContaining([
     expect.objectContaining({
-      subject: `${baseScenario.subsubspace.profile.displayName} - New comment received on Callout \u0026#34;Space Post Callout\u0026#34;, have a look!`,
+      subject: `${baseScenario.subsubspace.about.profile.displayName} - New comment received on Callout \u0026#34;Space Post Callout\u0026#34;, have a look!`,
       toAddresses,
     }),
   ]);

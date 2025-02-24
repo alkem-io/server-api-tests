@@ -219,8 +219,8 @@ describe('Notifications - whiteboard', () => {
   });
 
   test('GA create space whiteboard - GA(1), HA (2), HM(6) get notifications', async () => {
-    const subjectTextAdmin = `${baseScenario.space.profile.displayName}: New Whiteboard created by admin`;
-    const subjectTextMember = `${baseScenario.space.profile.displayName}: New Whiteboard created by admin, have a look!`;
+    const subjectTextAdmin = `${baseScenario.space.about.profile.displayName}: New Whiteboard created by admin`;
+    const subjectTextMember = `${baseScenario.space.about.profile.displayName}: New Whiteboard created by admin, have a look!`;
 
     // Act
     const res = await createWhiteboardOnCallout(
@@ -287,8 +287,8 @@ describe('Notifications - whiteboard', () => {
   });
 
   test('HA create space whiteboard - GA(1), HA (1), HM(6) get notifications', async () => {
-    const subjectTextAdmin = `${baseScenario.space.profile.displayName}: New Whiteboard created by space`;
-    const subjectTextMember = `${baseScenario.space.profile.displayName}: New Whiteboard created by space, have a look!`;
+    const subjectTextAdmin = `${baseScenario.space.about.profile.displayName}: New Whiteboard created by space`;
+    const subjectTextMember = `${baseScenario.space.about.profile.displayName}: New Whiteboard created by space, have a look!`;
     // Act
     const res = await createWhiteboardOnCallout(
       whiteboardCollectionSpaceCalloutId,
@@ -353,8 +353,8 @@ describe('Notifications - whiteboard', () => {
   });
 
   test('HA create subspace whiteboard - GA(1), HA (1), CA(1), CM(3),  get notifications', async () => {
-    const subjectTextAdmin = `${baseScenario.subspace.profile.displayName}: New Whiteboard created by space`;
-    const subjectTextMember = `${baseScenario.subspace.profile.displayName}: New Whiteboard created by space, have a look!`;
+    const subjectTextAdmin = `${baseScenario.subspace.about.profile.displayName}: New Whiteboard created by space`;
+    const subjectTextMember = `${baseScenario.subspace.about.profile.displayName}: New Whiteboard created by space, have a look!`;
     // Act
     const res = await createWhiteboardOnCallout(
       whiteboardCollectionSubspaceCalloutId,
@@ -430,8 +430,8 @@ describe('Notifications - whiteboard', () => {
   });
 
   test('OM create subsubspace whiteboard - HA(2), CA(1), OA(2), OM(4), get notifications', async () => {
-    const subjectTextAdmin = `${baseScenario.subsubspace.profile.displayName}: New Whiteboard created by subsubspace`;
-    const subjectTextMember = `${baseScenario.subsubspace.profile.displayName}: New Whiteboard created by subsubspace, have a look!`;
+    const subjectTextAdmin = `${baseScenario.subsubspace.about.profile.displayName}: New Whiteboard created by subsubspace`;
+    const subjectTextMember = `${baseScenario.subsubspace.about.profile.displayName}: New Whiteboard created by subsubspace, have a look!`;
     // Act
     const res = await createWhiteboardOnCallout(
       whiteboardCollectionSubsubspaceCalloutId,

@@ -26,6 +26,9 @@ let baseScenario: OrganizationWithSpaceModel;
 const scenarioConfig: TestScenarioConfig = {
   name: 'subsubspace',
   space: {
+    collaboration: {
+      addTutorialCallouts: false,
+    },
     subspace: {
       subspace: {},
     },
@@ -89,12 +92,10 @@ describe('Opportunities', () => {
     const requestSubsubspaceData = requestQuerySubsubspace?.data?.lookup?.space;
 
     // Assert
-    expect(updateSubsubspaceData?.profile).toEqual(
-      requestSubsubspaceData?.profile
+    expect(updateSubsubspaceData?.about.profile).toEqual(
+      requestSubsubspaceData?.about.profile
     );
-    expect(updateSubsubspaceData?.context).toEqual(
-      requestSubsubspaceData?.context
-    );
+    expect(updateSubsubspaceData?.about).toEqual(requestSubsubspaceData?.about);
   });
 
   test('should remove subsubspace and query the data', async () => {

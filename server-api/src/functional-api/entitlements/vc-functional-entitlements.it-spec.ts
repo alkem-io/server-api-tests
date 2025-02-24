@@ -111,6 +111,7 @@ describe('Functional tests - VC', () => {
           vcName,
           vcName,
           TestUserManager.users.nonSpaceMember.accountId,
+          true,
           TestUser.NON_SPACE_MEMBER
         );
 
@@ -138,6 +139,7 @@ describe('Functional tests - VC', () => {
         spaceName,
         spaceName,
         TestUserManager.users.nonSpaceMember.accountId,
+        true,
         TestUser.NON_SPACE_MEMBER
       );
 

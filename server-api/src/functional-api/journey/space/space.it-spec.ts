@@ -58,7 +58,7 @@ describe('Space entity', () => {
 
     // Assert
     expect(spaceData.status).toBe(200);
-    expect(spaceData?.data?.lookup?.space?.profile.displayName).toEqual(
+    expect(spaceData?.data?.lookup?.space?.about.profile.displayName).toEqual(
       spaceName + 'a'
     );
 

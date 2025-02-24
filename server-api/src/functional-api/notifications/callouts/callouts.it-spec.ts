@@ -154,7 +154,7 @@ describe('Notifications - post', () => {
     });
   });
   test('GA PUBLISH space callout - HM(7) get notifications', async () => {
-    const spaceCalloutSubjectText = `${baseScenario.space.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
+    const spaceCalloutSubjectText = `${baseScenario.space.about.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
     // Act
     const res = await createCalloutOnCalloutsSet(
       baseScenario.space.collaboration.calloutsSetId,
@@ -289,7 +289,7 @@ describe('Notifications - post', () => {
   });
 
   test('HA create PUBLISHED space callout type: POST - HM(7) get notifications', async () => {
-    const spaceCalloutSubjectText = `${baseScenario.space.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
+    const spaceCalloutSubjectText = `${baseScenario.space.about.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
     // Act
     const res = await createCalloutOnCalloutsSet(
       baseScenario.space.collaboration.calloutsSetId,
@@ -437,7 +437,7 @@ describe('Notifications - post', () => {
   });
 
   test('HA create PUBLISHED subspace callout type: POST - CM(5) get notifications', async () => {
-    const calloutSubjectText = `${baseScenario.subspace.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
+    const calloutSubjectText = `${baseScenario.subspace.about.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
     // Act
     const res = await createCalloutOnCalloutsSet(
       baseScenario.subspace.collaboration.calloutsSetId,
@@ -529,7 +529,7 @@ describe('Notifications - post', () => {
   });
 
   test('OA create PUBLISHED subsubspace callout type: POST - OM(4) get notifications', async () => {
-    const calloutSubjectText = `${baseScenario.subsubspace.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
+    const calloutSubjectText = `${baseScenario.subsubspace.about.profile.displayName} - New post is published &#34;${calloutDisplayName}&#34;, have a look!`;
     // Act
     const res = await createCalloutOnCalloutsSet(
       baseScenario.subsubspace.collaboration.calloutsSetId,

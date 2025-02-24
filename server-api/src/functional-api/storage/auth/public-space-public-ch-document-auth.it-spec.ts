@@ -125,7 +125,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
     });
     beforeAll(async () => {
       const visualData = await lookupProfileVisuals(
-        baseScenario.subspace.profile.id
+        baseScenario.subspace.about.profile.id
       );
       const visualId = visualData.data?.lookup.profile?.visuals[0].id ?? '';
       await uploadImageOnVisual(
@@ -134,7 +134,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       );
 
       const getDocId = await getProfileDocuments(
-        baseScenario.subspace.profile.id,
+        baseScenario.subspace.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
 
@@ -156,7 +156,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space subspace profile visual document',
       async ({ userRole, privileges }) => {
         const res = await getProfileDocuments(
-          baseScenario.subspace.profile.id,
+          baseScenario.subspace.about.profile.id,
           userRole
         );
 
@@ -180,7 +180,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space subspace profile storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
         const res = await getProfileDocuments(
-          baseScenario.subspace.profile.id,
+          baseScenario.subspace.about.profile.id,
           userRole
         );
         const data = res.data?.lookup?.profile?.storageBucket;
@@ -197,7 +197,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
     });
     beforeAll(async () => {
       const refData = await createReferenceOnProfile(
-        baseScenario.subspace.profile.id
+        baseScenario.subspace.about.profile.id
       );
       refId = refData?.data?.createReferenceOnProfile?.id ?? '';
       await uploadFileOnRef(
@@ -206,7 +206,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       );
 
       const getDocId = await getProfileDocuments(
-        baseScenario.subspace.profile.id,
+        baseScenario.subspace.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
       documentId =
@@ -227,7 +227,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space subspace profile reference document',
       async ({ userRole, privileges }) => {
         const res = await getProfileDocuments(
-          baseScenario.subspace.profile.id,
+          baseScenario.subspace.about.profile.id,
           userRole
         );
 
@@ -251,7 +251,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space subspace profile storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
         const res = await getProfileDocuments(
-          baseScenario.subspace.profile.id,
+          baseScenario.subspace.about.profile.id,
           userRole
         );
 
@@ -269,7 +269,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
     });
     beforeAll(async () => {
       const getSpaceStorageId = await getProfileDocuments(
-        baseScenario.subspace.profile.id,
+        baseScenario.subspace.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
 
@@ -282,7 +282,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       );
 
       const getDocId = await getProfileDocuments(
-        baseScenario.subspace.profile.id,
+        baseScenario.subspace.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
 
@@ -304,7 +304,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space context (storageBucket) document',
       async ({ userRole, privileges }) => {
         const res = await getProfileDocuments(
-          baseScenario.subspace.profile.id,
+          baseScenario.subspace.about.profile.id,
           userRole
         );
 
@@ -328,7 +328,7 @@ describe('Public Space - Public Subspace - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space context storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
         const res = await getProfileDocuments(
-          baseScenario.subspace.profile.id,
+          baseScenario.subspace.about.profile.id,
           userRole
         );
         const data = res.data?.lookup.profile?.storageBucket;

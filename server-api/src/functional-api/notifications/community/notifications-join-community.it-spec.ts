@@ -150,7 +150,7 @@ describe('Notifications - member join community', () => {
     await delay(10000);
 
     const getEmailsData = await getMailsData();
-    const subjectAdminSpaceNon = `user &#34;non space&#34; joined ${baseScenario.space.profile.displayName}`;
+    const subjectAdminSpaceNon = `user &#34;non space&#34; joined ${baseScenario.space.about.profile.displayName}`;
     // Assert
     expect(getEmailsData[1]).toEqual(3);
     expect(getEmailsData[0]).toEqual(
@@ -164,7 +164,7 @@ describe('Notifications - member join community', () => {
           toAddresses: [TestUserManager.users.spaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName} - Welcome to the Community!`,
+          subject: `${baseScenario.space.about.profile.displayName} - Welcome to the Community!`,
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])
@@ -181,7 +181,7 @@ describe('Notifications - member join community', () => {
     await delay(10000);
     const getEmailsData = await getMailsData();
 
-    const subjectAdminSubspace = `user &#34;non space&#34; joined ${baseScenario.subspace.profile.displayName}`;
+    const subjectAdminSubspace = `user &#34;non space&#34; joined ${baseScenario.subspace.about.profile.displayName}`;
 
     // Assert
     expect(getEmailsData[1]).toEqual(3);
@@ -196,7 +196,7 @@ describe('Notifications - member join community', () => {
           toAddresses: [TestUserManager.users.subspaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.subspace.profile.displayName} - Welcome to the Community!`,
+          subject: `${baseScenario.subspace.about.profile.displayName} - Welcome to the Community!`,
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])
@@ -214,7 +214,7 @@ describe('Notifications - member join community', () => {
 
     await delay(10000);
 
-    const subjectAdminSpace = `user &#34;qa user&#34; joined ${baseScenario.space.profile.displayName}`;
+    const subjectAdminSpace = `user &#34;qa user&#34; joined ${baseScenario.space.about.profile.displayName}`;
 
     const getEmailsData = await getMailsData();
     // Assert
@@ -230,7 +230,7 @@ describe('Notifications - member join community', () => {
           toAddresses: [TestUserManager.users.spaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName} - Welcome to the Community!`,
+          subject: `${baseScenario.space.about.profile.displayName} - Welcome to the Community!`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])

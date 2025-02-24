@@ -247,7 +247,7 @@ describe('Search', () => {
         space: {
           id: baseScenario.space.id,
           profile: {
-            displayName: baseScenario.space.profile.displayName,
+            displayName: baseScenario.space.about.profile.displayName,
           },
         },
       });
@@ -258,7 +258,7 @@ describe('Search', () => {
         subspace: {
           id: baseScenario.subspace.id,
           profile: {
-            displayName: baseScenario.subspace.profile.displayName,
+            displayName: baseScenario.subspace.about.profile.displayName,
           },
         },
       });
@@ -269,7 +269,7 @@ describe('Search', () => {
         subsubspace: {
           id: baseScenario.subsubspace.id,
           profile: {
-            displayName: baseScenario.subsubspace.profile.displayName,
+            displayName: baseScenario.subsubspace.about.profile.displayName,
           },
         },
       });
@@ -293,7 +293,7 @@ describe('Search', () => {
         space: {
           id: baseScenario.space.id,
           profile: {
-            displayName: baseScenario.space.profile.displayName,
+            displayName: baseScenario.space.about.profile.displayName,
           },
         },
         subspace: null,
@@ -318,13 +318,13 @@ describe('Search', () => {
         space: {
           id: baseScenario.space.id,
           profile: {
-            displayName: baseScenario.space.profile.displayName,
+            displayName: baseScenario.space.about.profile.displayName,
           },
         },
         subspace: {
           id: baseScenario.subspace.id,
           profile: {
-            displayName: baseScenario.subspace.profile.displayName,
+            displayName: baseScenario.subspace.about.profile.displayName,
           },
         },
         subsubspace: null,
@@ -348,19 +348,19 @@ describe('Search', () => {
         space: {
           id: baseScenario.space.id,
           profile: {
-            displayName: baseScenario.space.profile.displayName,
+            displayName: baseScenario.space.about.profile.displayName,
           },
         },
         subspace: {
           id: baseScenario.subspace.id,
           profile: {
-            displayName: baseScenario.subspace.profile.displayName,
+            displayName: baseScenario.subspace.about.profile.displayName,
           },
         },
         subsubspace: {
           id: baseScenario.subsubspace.id,
           profile: {
-            displayName: baseScenario.subsubspace.profile.displayName,
+            displayName: baseScenario.subsubspace.about.profile.displayName,
           },
         },
         callout: {
@@ -491,7 +491,7 @@ describe('Search', () => {
       space: {
         id: baseScenario.space.id,
         profile: {
-          displayName: baseScenario.space.profile.displayName,
+          displayName: baseScenario.space.about.profile.displayName,
         },
       },
     });
@@ -502,7 +502,7 @@ describe('Search', () => {
       subspace: {
         id: baseScenario.subspace.id,
         profile: {
-          displayName: baseScenario.subspace.profile.displayName,
+          displayName: baseScenario.subspace.about.profile.displayName,
         },
       },
     });
@@ -513,7 +513,7 @@ describe('Search', () => {
       subsubspace: {
         id: baseScenario.subsubspace.id,
         profile: {
-          displayName: baseScenario.subsubspace.profile.displayName,
+          displayName: baseScenario.subsubspace.about.profile.displayName,
         },
       },
     });
@@ -566,7 +566,7 @@ describe('Search', () => {
       subsubspace: {
         id: baseScenario.subsubspace.id,
         profile: {
-          displayName: baseScenario.subsubspace.profile.displayName,
+          displayName: baseScenario.subsubspace.about.profile.displayName,
         },
       },
     });
@@ -578,7 +578,7 @@ describe('Search', () => {
       subspace: {
         id: baseScenario.subspace.id,
         profile: {
-          displayName: baseScenario.subspace.profile.displayName,
+          displayName: baseScenario.subspace.about.profile.displayName,
         },
       },
     });
@@ -590,7 +590,7 @@ describe('Search', () => {
       space: {
         id: baseScenario.space.id,
         profile: {
-          displayName: baseScenario.space.profile.displayName,
+          displayName: baseScenario.space.about.profile.displayName,
         },
       },
     });
@@ -807,7 +807,7 @@ describe('Search', () => {
         subspace: {
           id: baseScenario.subspace.id,
           profile: {
-            displayName: baseScenario.subspace.profile.displayName,
+            displayName: baseScenario.subspace.about.profile.displayName,
           },
         },
       });
@@ -818,7 +818,7 @@ describe('Search', () => {
         subsubspace: {
           id: baseScenario.subsubspace.id,
           profile: {
-            displayName: baseScenario.subsubspace.profile.displayName,
+            displayName: baseScenario.subsubspace.about.profile.displayName,
           },
         },
       });
@@ -870,7 +870,7 @@ describe('Search', () => {
           subsubspace: {
             id: baseScenario.subsubspace.id,
             profile: {
-              displayName: baseScenario.subsubspace.profile.displayName,
+              displayName: baseScenario.subsubspace.about.profile.displayName,
             },
           },
         });
@@ -882,7 +882,7 @@ describe('Search', () => {
           subspace: {
             id: baseScenario.subspace.id,
             profile: {
-              displayName: baseScenario.subspace.profile.displayName,
+              displayName: baseScenario.subspace.about.profile.displayName,
             },
           },
         });
@@ -894,7 +894,7 @@ describe('Search', () => {
           space: {
             id: baseScenario.space.id,
             profile: {
-              displayName: baseScenario.space.profile.displayName,
+              displayName: baseScenario.space.about.profile.displayName,
             },
           },
         });

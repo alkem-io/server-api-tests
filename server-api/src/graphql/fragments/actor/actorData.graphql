@@ -1,7 +1,0 @@
-fragment ActorData on Actor {
-  id
-  name
-  description
-  value
-  impact
-}

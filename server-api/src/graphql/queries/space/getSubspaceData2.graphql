@@ -1,0 +1,7 @@
+query GetSpaceAboutDetails($subspaceId: UUID!) {
+  lookup {
+    space(ID: $subspaceId) {
+      ...SubspaceData
+    }
+  }
+}

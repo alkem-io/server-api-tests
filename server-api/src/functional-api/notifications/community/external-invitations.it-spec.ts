@@ -164,7 +164,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.space.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.space.about.profile.displayName}`,
           toAddresses: [emailExternalUser],
         }),
       ])
@@ -172,7 +172,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.space.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.space.about.profile.displayName}`,
           toAddresses: [TestUserManager.users.globalAdmin.email],
         }),
       ])
@@ -202,7 +202,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.subspace.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.subspace.about.profile.displayName}`,
           toAddresses: [emailExternalUser],
         }),
       ])
@@ -210,7 +210,7 @@ describe('Notifications - invitations', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `Invitation to join ${baseScenario.subspace.profile.displayName}`,
+          subject: `Invitation to join ${baseScenario.subspace.about.profile.displayName}`,
           toAddresses: [TestUserManager.users.subspaceAdmin.email],
         }),
       ])

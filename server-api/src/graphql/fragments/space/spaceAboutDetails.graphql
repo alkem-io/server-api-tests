@@ -1,0 +1,11 @@
+fragment SpaceAboutDetails on SpaceAbout {
+  id
+  why
+  who
+  authorization {
+    ...AuthorizationData
+  }
+  profile {
+    ...ProfileData
+  }
+}

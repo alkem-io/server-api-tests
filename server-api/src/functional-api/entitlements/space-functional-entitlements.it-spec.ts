@@ -105,6 +105,7 @@ describe('Functional tests - Space', () => {
           spaceName,
           spaceName,
           TestUserManager.users.nonSpaceMember.accountId,
+          true,
           TestUser.NON_SPACE_MEMBER
         );
 
@@ -125,6 +126,7 @@ describe('Functional tests - Space', () => {
         spaceName,
         spaceName,
         TestUserManager.users.nonSpaceMember.accountId,
+        true,
         TestUser.NON_SPACE_MEMBER
       );
 
@@ -158,6 +160,7 @@ describe('Functional tests - Space', () => {
         spaceName,
         spaceName,
         TestUserManager.users.nonSpaceMember.accountId,
+        true,
         TestUser.NON_SPACE_MEMBER
       );
 

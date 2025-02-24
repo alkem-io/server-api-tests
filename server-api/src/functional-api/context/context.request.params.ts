@@ -8,7 +8,7 @@ export const getContextData = async (
 ) => {
   const graphqlClient = getGraphqlClient();
   const callback = (authToken: string | undefined) =>
-    graphqlClient.GetContextData(
+    graphqlClient.GetSpaceAboutDetails(
       {
         subspaceId: subspaceId as string,
       },
