@@ -134,11 +134,11 @@ describe('Public Space - visual on profile', () => {
 
     test.each`
       userRole                     | privileges                                                          | parentEntityType
-      ${undefined}                 | ${sorted_read_readAbout}                                            | ${'SPACE'}
-      ${TestUser.GLOBAL_ADMIN}     | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE'}
-      ${TestUser.SPACE_ADMIN}      | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE'}
-      ${TestUser.NON_SPACE_MEMBER} | ${sorted_read_readAbout}                                            | ${'SPACE'}
-      ${TestUser.SPACE_MEMBER}     | ${sorted_read_readAbout}                                            | ${'SPACE'}
+      ${undefined}                 | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
+      ${TestUser.GLOBAL_ADMIN}     | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE_ABOUT'}
+      ${TestUser.SPACE_ADMIN}      | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE_ABOUT'}
+      ${TestUser.NON_SPACE_MEMBER} | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
+      ${TestUser.SPACE_MEMBER}     | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
     `(
       'User: "$userRole" has this privileges: "$privileges" to space profile storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
@@ -201,11 +201,11 @@ describe('Public Space - visual on profile', () => {
 
     test.each`
       userRole                     | privileges                                                          | parentEntityType
-      ${undefined}                 | ${sorted_read_readAbout}                                            | ${'SPACE'}
-      ${TestUser.GLOBAL_ADMIN}     | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE'}
-      ${TestUser.SPACE_ADMIN}      | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE'}
-      ${TestUser.NON_SPACE_MEMBER} | ${sorted_read_readAbout}                                            | ${'SPACE'}
-      ${TestUser.SPACE_MEMBER}     | ${sorted_read_readAbout}                                            | ${'SPACE'}
+      ${undefined}                 | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
+      ${TestUser.GLOBAL_ADMIN}     | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE_ABOUT'}
+      ${TestUser.SPACE_ADMIN}      | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE_ABOUT'}
+      ${TestUser.NON_SPACE_MEMBER} | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
+      ${TestUser.SPACE_MEMBER}     | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
     `(
       'User: "$userRole" has this privileges: "$privileges" to space profile storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
@@ -274,11 +274,11 @@ describe('Public Space - visual on profile', () => {
 
     test.each`
       userRole                     | privileges                                                          | parentEntityType
-      ${undefined}                 | ${sorted_read_readAbout}                                            | ${'SPACE'}
-      ${TestUser.GLOBAL_ADMIN}     | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE'}
-      ${TestUser.SPACE_ADMIN}      | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE'}
-      ${TestUser.NON_SPACE_MEMBER} | ${sorted_read_readAbout}                                            | ${'SPACE'}
-      ${TestUser.SPACE_MEMBER}     | ${sorted_read_readAbout}                                            | ${'SPACE'}
+      ${undefined}                 | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
+      ${TestUser.GLOBAL_ADMIN}     | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE_ABOUT'}
+      ${TestUser.SPACE_ADMIN}      | ${sorted__create_read_readAbout_update_delete_grant_fileUp_fileDel} | ${'SPACE_ABOUT'}
+      ${TestUser.NON_SPACE_MEMBER} | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
+      ${TestUser.SPACE_MEMBER}     | ${sorted_read_readAbout}                                            | ${'SPACE_ABOUT'}
     `(
       'User: "$userRole" has this privileges: "$privileges" to space context storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
