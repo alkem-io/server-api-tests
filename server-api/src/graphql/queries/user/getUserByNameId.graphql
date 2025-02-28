@@ -1,0 +1,5 @@
+query GetUserByNameId($nameId: NameID!) {
+  lookupByName {
+    user(NAMEID: $nameId)
+  }
+}

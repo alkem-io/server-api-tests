@@ -281,7 +281,7 @@ describe('Notifications - post comments', () => {
     });
 
     test('HM create comment - GA(1) get notifications', async () => {
-      const spacePostSubjectText = `${baseScenario.space.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
+      const spacePostSubjectText = `${baseScenario.space.about.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
       // Act
       const messageRes = await sendMessageToRoom(
         postCommentsIdSpace,
@@ -340,7 +340,7 @@ describe('Notifications - post comments', () => {
     });
 
     test('HA create comment - HM(1) get notifications', async () => {
-      const spacePostSubjectText = `${baseScenario.space.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
+      const spacePostSubjectText = `${baseScenario.space.about.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
       // Act
       const messageRes = await sendMessageToRoom(
         postCommentsIdSpace,
@@ -399,7 +399,7 @@ describe('Notifications - post comments', () => {
     });
 
     test('CA create comment - CM(1) get notifications', async () => {
-      const subspacePostSubjectText = `${baseScenario.subspace.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
+      const subspacePostSubjectText = `${baseScenario.subspace.about.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
       // Act
       const messageRes = await sendMessageToRoom(
         postCommentsIdSubspace,
@@ -458,7 +458,7 @@ describe('Notifications - post comments', () => {
     });
 
     test('CA create comment - OM(1) get notifications', async () => {
-      const subsubspacePostSubjectText = `${baseScenario.subsubspace.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
+      const subsubspacePostSubjectText = `${baseScenario.subsubspace.about.profile.displayName} - New comment received on your Post &#34;${postDisplayName}&#34;, have a look!`;
       // Act
       const messageRes = await sendMessageToRoom(
         postCommentsIdSubsubspace,

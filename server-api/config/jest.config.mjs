@@ -1,6 +1,5 @@
-
 import { pathsToModuleNameMapper } from 'ts-jest';
-import tsconfig from '../tsconfig.json' assert { type: "json" };
+import tsconfig from '../tsconfig.json' assert { type: 'json' };
 
 export default {
   rootDir: '../',
@@ -33,5 +32,3 @@ export default {
     ],
   ],
 };
-
-

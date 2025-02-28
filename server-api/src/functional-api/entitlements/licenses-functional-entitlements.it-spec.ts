@@ -74,6 +74,7 @@ describe('Functional tests - licenses updates', () => {
         spaceName,
         spaceName,
         TestUserManager.users.nonSpaceMember.accountId,
+        true,
         TestUser.NON_SPACE_MEMBER
       );
       spaceId = createSpace.data?.createSpace.id ?? '';

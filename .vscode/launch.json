@@ -19,8 +19,8 @@
         "--runInBand",
         "--forceExit",
         "--config",
-        "${workspaceFolder}/server-api/config/jest.config.roleset.mjs",
-        "authorization"
+        "${workspaceFolder}/server-api/config/jest.config.journey.mjs",
+        "platform"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"

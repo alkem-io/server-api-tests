@@ -130,7 +130,7 @@ describe('Notifications - send messages to Private Space, Subsubspace Community 
           toAddresses: [TestUserManager.users.subsubspaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: senders(baseScenario.subsubspace.profile.displayName),
+          subject: senders(baseScenario.subsubspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])
@@ -165,7 +165,7 @@ describe('Notifications - send messages to Private Space, Subsubspace Community 
           toAddresses: [TestUserManager.users.subsubspaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: senders(baseScenario.subsubspace.profile.displayName),
+          subject: senders(baseScenario.subsubspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.subsubspaceMember.email],
         }),
       ])
@@ -214,7 +214,7 @@ describe('Notifications - send messages to Private Space, Public Subspace, Subsu
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: senders(baseScenario.subsubspace.profile.displayName),
+          subject: senders(baseScenario.subsubspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])

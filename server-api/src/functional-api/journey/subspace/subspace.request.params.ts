@@ -71,21 +71,20 @@ export const subspaceVariablesData = (
   const variables = {
     nameID: nameId,
     spaceID: spaceId,
-    profileData: {
-      displayName,
-      tagline: 'test tagline' + uniqueId,
-      description: 'test description' + uniqueId,
-      referencesData: [
-        {
-          name: 'test video' + uniqueId,
-          uri: 'https://youtu.be/-wGlzcjs',
-          description: 'dest description' + uniqueId,
-        },
-      ],
-    },
-    context: {
-      vision: 'test vision' + uniqueId,
-      impact: 'test impact' + uniqueId,
+    about: {
+      profileData: {
+        displayName,
+        tagline: 'test tagline' + uniqueId,
+        description: 'test description' + uniqueId,
+        referencesData: [
+          {
+            name: 'test video' + uniqueId,
+            uri: 'https://youtu.be/-wGlzcjs',
+            description: 'dest description' + uniqueId,
+          },
+        ],
+      },
+      why: 'test vision' + uniqueId,
       who: 'test who' + uniqueId,
     },
     collaborationData: {

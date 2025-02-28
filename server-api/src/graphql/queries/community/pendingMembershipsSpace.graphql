@@ -6,10 +6,11 @@ query PendingMembershipsSpace(
     space(ID: $spaceId) {
       id
       nameID
-      profile {
-        ...PendingMembershipsJourneyProfile
+      about {
+        profile {
+          ...PendingMembershipsJourneyProfile
+        }
       }
-      __typename
     }
   }
 }

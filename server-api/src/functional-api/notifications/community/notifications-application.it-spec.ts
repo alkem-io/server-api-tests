@@ -17,7 +17,7 @@ import { changePreferenceUser } from '@functional-api/contributor-management/use
 import { TestScenarioFactory } from '@src/scenario/TestScenarioFactory';
 import { OrganizationWithSpaceModel } from '@src/scenario/models/OrganizationWithSpaceModel';
 import { TestScenarioConfig } from '@src/scenario/config/test-scenario-config';
-import { getUserData } from '@functional-api/contributor-management/user/user.request.params';
+import { getUserByNameId } from '@functional-api/contributor-management/user/user.request.params';
 
 let preferencesConfig: any[] = [];
 
@@ -112,8 +112,9 @@ afterAll(async () => {
 
 describe('Notifications - applications', () => {
   beforeAll(async () => {
-    const notificationsUserId = await getUserData('notifications@alkem.io');
-    const notificationsAdminUserId = notificationsUserId?.data?.user?.id ?? '';
+    const notificationsUserId = await getUserByNameId('notifications-admin');
+    const notificationsAdminUserId =
+      notificationsUserId.data?.lookupByName.user ?? '';
     await changePreferenceUser(
       notificationsAdminUserId,
       PreferenceType.NotificationApplicationSubmitted,
@@ -159,15 +160,15 @@ describe('Notifications - applications', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.space.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.globalAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.space.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.spaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.space.profile.displayName} - Your Application to join was received!`,
+          subject: `${baseScenario.space.about.profile.displayName} - Your Application to join was received!`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])
@@ -199,15 +200,15 @@ describe('Notifications - applications', () => {
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: `${baseScenario.subspace.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.subspace.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.globalAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.subspace.profile.displayName}: Application from qa`,
+          subject: `${baseScenario.subspace.about.profile.displayName}: Application from qa`,
           toAddresses: [TestUserManager.users.subspaceAdmin.email],
         }),
         expect.objectContaining({
-          subject: `${baseScenario.subspace.profile.displayName} - Your Application to join was received!`,
+          subject: `${baseScenario.subspace.about.profile.displayName} - Your Application to join was received!`,
           toAddresses: [TestUserManager.users.qaUser.email],
         }),
       ])

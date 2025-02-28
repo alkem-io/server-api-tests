@@ -3,7 +3,10 @@ import { ProfileModel } from './ProfileModel';
 export type SpaceModel = {
   id: string;
   nameId: string;
-  profile: ProfileModel;
+  about: {
+    id: string;
+    profile: ProfileModel;
+  };
   templateSetId: string;
   community: {
     id: string;

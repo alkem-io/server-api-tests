@@ -1,0 +1,21 @@
+mutation convertVirtualContributorToUseKnowledgeBase(
+  $conversionData: ConversionVcSpaceToVcKnowledgeBaseInput!
+) {
+  convertVirtualContributorToUseKnowledgeBase(conversionData: $conversionData) {
+    id
+    nameID
+    knowledgeBase {
+      calloutsSet {
+        id
+      }
+      profile {
+        storageBucket {
+          documents {
+            id
+            url
+          }
+        }
+      }
+    }
+  }
+}

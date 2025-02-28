@@ -214,8 +214,8 @@ describe('Notifications - post', () => {
   });
 
   test('GA create space post - GA(1), HA (2), HM(6) get notifications', async () => {
-    const postSubjectAdmin = `${baseScenario.space.profile.displayName}: New Post created by admin`;
-    const postSubjectMember = `${baseScenario.space.profile.displayName}: New Post created by admin, have a look!`;
+    const postSubjectAdmin = `${baseScenario.space.about.profile.displayName}: New Post created by admin`;
+    const postSubjectMember = `${baseScenario.space.about.profile.displayName}: New Post created by admin, have a look!`;
 
     // Act
     const resPostonSpace = await createPostOnCallout(
@@ -290,8 +290,8 @@ describe('Notifications - post', () => {
   });
 
   test('HA create space post - GA(1), HA (1), HM(6) get notifications', async () => {
-    const postSubjectAdmin = `${baseScenario.space.profile.displayName}: New Post created by space`;
-    const postSubjectMember = `${baseScenario.space.profile.displayName}: New Post created by space, have a look!`;
+    const postSubjectAdmin = `${baseScenario.space.about.profile.displayName}: New Post created by space`;
+    const postSubjectMember = `${baseScenario.space.about.profile.displayName}: New Post created by space, have a look!`;
     // Act
     const resPostonSpace = await createPostOnCallout(
       baseScenario.space.collaboration.calloutPostCollectionId,
@@ -367,8 +367,8 @@ describe('Notifications - post', () => {
   });
 
   test('HA create subspace post - GA(1), HA (1), CA(1), CM(3),  get notifications', async () => {
-    const postSubjectAdmin = `${baseScenario.subspace.profile.displayName}: New Post created by space`;
-    const postSubjectMember = `${baseScenario.subspace.profile.displayName}: New Post created by space, have a look!`;
+    const postSubjectAdmin = `${baseScenario.subspace.about.profile.displayName}: New Post created by space`;
+    const postSubjectMember = `${baseScenario.subspace.about.profile.displayName}: New Post created by space, have a look!`;
     // Act
     const resPostonSpace = await createPostOnCallout(
       baseScenario.subspace.collaboration.calloutPostCollectionId,
@@ -445,8 +445,8 @@ describe('Notifications - post', () => {
   });
 
   test('OM create subsubspace post - HA(2), CA(1), OA(2), OM(4), get notifications', async () => {
-    const postSubjectAdmin = `${baseScenario.subsubspace.profile.displayName}: New Post created by subsubspace`;
-    const postSubjectMember = `${baseScenario.subsubspace.profile.displayName}: New Post created by subsubspace, have a look!`;
+    const postSubjectAdmin = `${baseScenario.subsubspace.about.profile.displayName}: New Post created by subsubspace`;
+    const postSubjectMember = `${baseScenario.subsubspace.about.profile.displayName}: New Post created by subsubspace, have a look!`;
     // Act
     const resPostonSpace = await createPostOnCallout(
       baseScenario.subsubspace.collaboration.calloutPostCollectionId,

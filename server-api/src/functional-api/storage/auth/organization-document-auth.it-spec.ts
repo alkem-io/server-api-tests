@@ -210,7 +210,7 @@ describe('Organization - documents', () => {
       );
 
       const getDocId = await getProfileDocuments(
-        baseScenario.space.profile.id,
+        baseScenario.space.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
 

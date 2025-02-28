@@ -1,0 +1,8 @@
+mutation transferCallout($transferData: TransferCalloutInput!) {
+  transferCallout(transferData: $transferData) {
+    id
+    nameID
+    isTemplate
+    visibility
+  }
+}

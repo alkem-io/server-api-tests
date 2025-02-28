@@ -40,8 +40,10 @@ query searchJourney($searchData: SearchInput!) {
       ... on SearchResultSpace {
         space {
           id
-          profile {
-            displayName
+          about {
+            profile {
+              displayName
+            }
           }
         }
         type
@@ -71,8 +73,10 @@ query searchContributions($searchData: SearchInput!) {
       ... on SearchResultPost {
         space {
           id
-          profile {
-            displayName
+          about {
+            profile {
+              displayName
+            }
           }
         }
         # subspace {

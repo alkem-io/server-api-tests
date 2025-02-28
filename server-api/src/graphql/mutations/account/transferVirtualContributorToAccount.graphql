@@ -5,10 +5,6 @@ mutation TransferVirtualContributorToAccount(
     id
     nameID
     listedInStore
-    provider {
-      id
-      nameID
-    }
     searchVisibility
   }
 }

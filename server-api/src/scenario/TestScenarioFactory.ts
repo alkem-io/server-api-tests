@@ -48,7 +48,7 @@ export class TestScenarioFactory {
     return result;
   }
 
-  public static async createBaseScenarioPrivate(
+  private static async createBaseScenarioPrivate(
     scenarioConfig: TestScenarioConfig
   ): Promise<OrganizationWithSpaceModel> {
     const baseScenario: OrganizationWithSpaceModel =
@@ -63,63 +63,65 @@ export class TestScenarioFactory {
         baseScenario.organization
       );
       baseScenario.scenarioSetupSucceeded = true;
+
+      LogManager.getLogger().info('Initial base scenario setup created');
+      if (!scenarioConfig.space) {
+        // nothing more to do, return
+        return baseScenario;
+      }
+
+      baseScenario.space = await this.createRootSpace(
+        baseScenario.space,
+        baseScenario.organization.accountId,
+        baseScenario.name,
+        scenarioConfig.space.collaboration?.addTutorialCallouts || true
+      );
+
+      await this.populateSpace(
+        scenarioConfig.space,
+        baseScenario.space,
+        baseScenario.name
+      );
+
+      const subspace = scenarioConfig.space.subspace;
+      if (!subspace) {
+        // all done, return
+        return baseScenario;
+      }
+
+      await this.createSubspace(
+        baseScenario.space.id,
+        baseScenario.name,
+        baseScenario.subspace
+      );
+      await this.populateSpace(
+        subspace,
+        baseScenario.subspace,
+        baseScenario.name
+      );
+
+      const subsubspace = subspace.subspace;
+      if (!subsubspace) {
+        // all done, return
+        return baseScenario;
+      }
+
+      await this.createSubspace(
+        baseScenario.subspace.id,
+        baseScenario.name,
+        baseScenario.subsubspace
+      );
+      await this.populateSpace(
+        subsubspace,
+        baseScenario.subsubspace,
+        baseScenario.name
+      );
     } catch (e) {
       LogManager.getLogger().error(
         `Unable to create core scenario setup: ${e}`
       );
       process.exit(1); // Exit the Jest process with an error code.
     }
-    LogManager.getLogger().info('Initial base scenario setup created');
-    if (!scenarioConfig.space) {
-      // nothing more to do, return
-      return baseScenario;
-    }
-    //
-    baseScenario.space = await this.createRootSpace(
-      baseScenario.space,
-      baseScenario.organization.accountId,
-      baseScenario.name
-    );
-
-    await this.populateSpace(
-      scenarioConfig.space,
-      baseScenario.space,
-      baseScenario.name
-    );
-
-    const subspace = scenarioConfig.space.subspace;
-    if (!subspace) {
-      // all done, return
-      return baseScenario;
-    }
-
-    await this.createSubspace(
-      baseScenario.space.id,
-      baseScenario.name,
-      baseScenario.subspace
-    );
-    await this.populateSpace(
-      subspace,
-      baseScenario.subspace,
-      baseScenario.name
-    );
-
-    const subsubspace = subspace.subspace;
-    if (!subsubspace) {
-      // all done, return
-      return baseScenario;
-    }
-
-    await this.createSubspace(
-      baseScenario.subspace.id,
-      baseScenario.name,
-      baseScenario.subsubspace
-    );
-    await this.populateSpace(
-      subsubspace,
-      baseScenario.subsubspace,
-      baseScenario.name
-    );
 
     return baseScenario;
   }
@@ -305,7 +307,8 @@ export class TestScenarioFactory {
   private static async createRootSpace(
     spaceModel: SpaceModel,
     accountID: string,
-    scenarioName: string
+    scenarioName: string,
+    addTutorialCallouts: boolean
   ): Promise<SpaceModel> {
     const uniqueId = UniqueIDGenerator.getID();
     const truncatedScenarioName = scenarioName.slice(0, 18);
@@ -318,7 +321,8 @@ export class TestScenarioFactory {
     const responseRootSpace = await this.createSpaceAndGetData(
       spaceName,
       spaceNameId,
-      accountID
+      accountID,
+      addTutorialCallouts
     );
 
     if (!responseRootSpace.data?.lookup?.space) {
@@ -330,9 +334,12 @@ export class TestScenarioFactory {
     const spaceData = responseRootSpace.data?.lookup?.space;
     spaceModel.id = spaceData?.id ?? '';
     spaceModel.nameId = spaceData?.nameID ?? '';
-    spaceModel.profile = {
-      id: spaceData?.profile?.id ?? '',
-      displayName: spaceData?.profile?.displayName ?? '',
+    spaceModel.about = {
+      id: spaceData?.about?.id ?? '',
+      profile: {
+        id: spaceData?.about.profile?.id ?? '',
+        displayName: spaceData?.about.profile?.displayName ?? '',
+      },
     };
     spaceModel.collaboration.id = spaceData?.collaboration.id ?? '';
     spaceModel.communication.updatesId =
@@ -454,9 +461,10 @@ export class TestScenarioFactory {
     targetModel.collaboration.id = subspaceData?.collaboration?.id ?? '';
     targetModel.collaboration.calloutsSetId =
       subspaceData?.collaboration.calloutsSet?.id ?? '';
-    targetModel.contextId = subspaceData?.context?.id ?? '';
-    targetModel.profile.id = subspaceData?.profile?.id ?? '';
-    targetModel.profile.displayName = subspaceData?.profile?.displayName ?? '';
+    targetModel.about.id = subspaceData?.about?.id ?? '';
+    targetModel.about.profile.id = subspaceData?.about.profile?.id ?? '';
+    targetModel.about.profile.displayName =
+      subspaceData?.about.profile?.displayName ?? '';
 
     return targetModel;
   }
@@ -488,12 +496,14 @@ export class TestScenarioFactory {
     spaceName: string,
     spaceNameId: string,
     accountID: string,
+    addTutorialCallouts: boolean,
     role = TestUser.GLOBAL_ADMIN
   ) {
     const response = await createSpaceBasicData(
       spaceName,
       spaceNameId,
       accountID,
+      addTutorialCallouts,
       role
     );
     const spaceId = response?.data?.createSpace.id ?? '';
@@ -536,9 +546,12 @@ export class TestScenarioFactory {
         roleSetId: '',
         applicationId: '',
       },
-      profile: {
+      about: {
         id: '',
-        displayName: '',
+        profile: {
+          id: '',
+          displayName: '',
+        },
       },
       collaboration: {
         id: '',

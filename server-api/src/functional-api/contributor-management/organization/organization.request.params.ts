@@ -3,7 +3,8 @@ import { getGraphqlClient } from '@utils/graphqlClient';
 import { graphqlErrorWrapper } from '@utils/graphql.wrapper';
 import { UpdateOrganizationSettingsEntityInput } from '@generated/graphql';
 
-import { UniqueIDGenerator } from '@alkemio/tests-lib';;
+import { UniqueIDGenerator } from '@alkemio/tests-lib';
+import { CreateOrganizationInput } from '@alkemio/client-lib';
 const uniqueId = UniqueIDGenerator.getID();
 export const organizationName = `testorghost${uniqueId}`;
 export const hostNameId = `testorghost${uniqueId}`;
@@ -18,26 +19,27 @@ export const createOrganization = async (
   userRole: TestUser = TestUser.GLOBAL_ADMIN
 ) => {
   const graphqlClient = getGraphqlClient();
+  const organizationData: CreateOrganizationInput = {
+    nameID,
+    legalEntityName,
+    domain,
+    website,
+    contactEmail,
+    profileData: {
+      displayName: organizationName,
+      referencesData: [
+        {
+          description: 'test ref',
+          name: 'test ref neame',
+          uri: 'https://testref.io',
+        },
+      ],
+    },
+  };
   const callback = (authToken: string | undefined) =>
     graphqlClient.CreateOrganization(
       {
-        organizationData: {
-          nameID,
-          legalEntityName,
-          domain,
-          website,
-          contactEmail,
-          profileData: {
-            displayName: organizationName,
-            referencesData: [
-              {
-                description: 'test ref',
-                name: 'test ref neame',
-                uri: 'https://testref.io',
-              },
-            ],
-          },
-        },
+        organizationData,
       },
       {
         authorization: `Bearer ${authToken}`,
@@ -123,8 +125,7 @@ export const getOrganizations = async (
   const graphqlClient = getGraphqlClient();
   const callback = (authToken: string | undefined) =>
     graphqlClient.getOrganizationsData(
-      {
-      },
+      {},
       {
         authorization: `Bearer ${authToken}`,
       }
@@ -135,14 +136,14 @@ export const getOrganizations = async (
 export const updateOrganizationSettings = async (
   organizationID: string,
   settingsData: UpdateOrganizationSettingsEntityInput,
-  userRole: TestUser = TestUser.GLOBAL_ADMIN,
+  userRole: TestUser = TestUser.GLOBAL_ADMIN
 ) => {
   const graphqlClient = getGraphqlClient();
   const callback = (authToken: string | undefined) =>
     graphqlClient.updateOrganizationSettings(
       {
         organizationID,
-        settingsData
+        settingsData,
       },
       {
         authorization: `Bearer ${authToken}`,

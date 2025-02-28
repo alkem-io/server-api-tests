@@ -92,7 +92,7 @@ describe('Private Space - visual on profile', () => {
     });
     beforeAll(async () => {
       const visualData = await lookupProfileVisuals(
-        baseScenario.space.profile.id
+        baseScenario.space.about.profile.id
       );
       const visualId = visualData.data?.lookup.profile?.visuals[0].id ?? '';
       await uploadImageOnVisual(
@@ -100,7 +100,7 @@ describe('Private Space - visual on profile', () => {
         visualId
       );
       const getDocId = await getProfileDocuments(
-        baseScenario.space.profile.id,
+        baseScenario.space.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
       documentId =
@@ -119,7 +119,7 @@ describe('Private Space - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space profile visual document',
       async ({ userRole, privileges }) => {
         const res = await getProfileDocuments(
-          baseScenario.space.profile.id,
+          baseScenario.space.about.profile.id,
           userRole
         );
         const data = res.data?.lookup?.profile?.storageBucket?.documents[0];
@@ -140,7 +140,7 @@ describe('Private Space - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space profile storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
         const res = await getProfileDocuments(
-          baseScenario.space.profile.id,
+          baseScenario.space.about.profile.id,
           userRole
         );
         const data = res.data?.lookup?.profile?.storageBucket;
@@ -157,7 +157,7 @@ describe('Private Space - visual on profile', () => {
     });
     beforeAll(async () => {
       const refData = await createReferenceOnProfile(
-        baseScenario.space.profile.id
+        baseScenario.space.about.profile.id
       );
       refId = refData?.data?.createReferenceOnProfile?.id ?? '';
       await uploadFileOnRef(
@@ -166,7 +166,7 @@ describe('Private Space - visual on profile', () => {
       );
 
       const getDocId = await getProfileDocuments(
-        baseScenario.space.profile.id,
+        baseScenario.space.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
       documentId =
@@ -185,7 +185,7 @@ describe('Private Space - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space profile reference document',
       async ({ userRole, privileges }) => {
         const res = await getProfileDocuments(
-          baseScenario.space.profile.id,
+          baseScenario.space.about.profile.id,
           userRole
         );
 
@@ -207,7 +207,7 @@ describe('Private Space - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space profile storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
         const res = await getProfileDocuments(
-          baseScenario.space.profile.id,
+          baseScenario.space.about.profile.id,
           userRole
         );
 
@@ -225,7 +225,7 @@ describe('Private Space - visual on profile', () => {
     });
     beforeAll(async () => {
       const getSpaceStorageId = await getProfileDocuments(
-        baseScenario.space.profile.id,
+        baseScenario.space.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
 
@@ -238,7 +238,7 @@ describe('Private Space - visual on profile', () => {
       );
 
       const getDocId = await getProfileDocuments(
-        baseScenario.space.profile.id,
+        baseScenario.space.about.profile.id,
         TestUser.GLOBAL_ADMIN
       );
 
@@ -258,7 +258,7 @@ describe('Private Space - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space context (storageBucket) document',
       async ({ userRole, privileges }) => {
         const res = await getProfileDocuments(
-          baseScenario.space.profile.id,
+          baseScenario.space.about.profile.id,
           userRole
         );
 
@@ -280,7 +280,7 @@ describe('Private Space - visual on profile', () => {
       'User: "$userRole" has this privileges: "$privileges" to space context storage bucket',
       async ({ userRole, privileges, parentEntityType }) => {
         const res = await getProfileDocuments(
-          baseScenario.space.profile.id,
+          baseScenario.space.about.profile.id,
           userRole
         );
         const data = res.data?.lookup?.profile?.storageBucket;

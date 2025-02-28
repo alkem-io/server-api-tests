@@ -1,9 +1,0 @@
-fragment ContextData on Context {
-  id
-  vision
-  impact
-  who
-  authorization {
-    ...AuthorizationData
-  }
-}

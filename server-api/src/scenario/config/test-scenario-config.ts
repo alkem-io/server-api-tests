@@ -26,6 +26,7 @@ export interface TestScenarioSpaceConfig {
     leads?: TestUser[];
   };
   collaboration?: {
+    addTutorialCallouts?: boolean; // Only applicable on L0
     addPostCallout?: boolean;
     addPostCollectionCallout?: boolean;
     addWhiteboardCallout?: boolean;

@@ -125,7 +125,7 @@ describe('Notifications - send messages to Private Space, Public Subspace Commun
           toAddresses: [TestUserManager.users.subspaceMember.email],
         }),
         expect.objectContaining({
-          subject: senders(baseScenario.subspace.profile.displayName),
+          subject: senders(baseScenario.subspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])
@@ -156,7 +156,7 @@ describe('Notifications - send messages to Private Space, Public Subspace Commun
           toAddresses: [TestUserManager.users.subspaceMember.email],
         }),
         expect.objectContaining({
-          subject: senders(baseScenario.subspace.profile.displayName),
+          subject: senders(baseScenario.subspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.spaceAdmin.email],
         }),
       ])
@@ -201,7 +201,7 @@ describe('Notifications - send messages to Private Space, Private Subspace Commu
           toAddresses: [TestUserManager.users.subspaceMember.email],
         }),
         expect.objectContaining({
-          subject: senders(baseScenario.subspace.profile.displayName),
+          subject: senders(baseScenario.subspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])
@@ -232,7 +232,7 @@ describe('Notifications - send messages to Private Space, Private Subspace Commu
           toAddresses: [TestUserManager.users.subspaceMember.email],
         }),
         expect.objectContaining({
-          subject: senders(baseScenario.subspace.profile.displayName),
+          subject: senders(baseScenario.subspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.spaceAdmin.email],
         }),
       ])
@@ -287,7 +287,7 @@ describe('Notifications - send messages to Private Space, Public Subspace NO Com
     expect(getEmailsData[0]).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          subject: senders(baseScenario.subspace.profile.displayName),
+          subject: senders(baseScenario.subspace.about.profile.displayName),
           toAddresses: [TestUserManager.users.nonSpaceMember.email],
         }),
       ])
