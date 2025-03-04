@@ -18,9 +18,10 @@ before_install:
 install:
   - cd $TRAVIS_BUILD_DIR/server-api
   - npm install
-  - travis_wait 30 npm install
+  - travis_wait 15 npm install
 script:
-  - cd $TRAVIS_BUILD_DIR/server-api && npm run test:nightly
+  - cd $TRAVIS_BUILD_DIR/server-api
+  - travis_wait 15 npm run test:nightly
 
 notifications:
   email:
