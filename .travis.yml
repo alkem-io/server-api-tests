@@ -17,6 +17,7 @@ before_install:
   - npm i -g npm@8.11.0
 install:
   - cd $TRAVIS_BUILD_DIR/server-api && npm install
+  - travis_wait 20 mvn install
 script:
   - cd $TRAVIS_BUILD_DIR/server-api && npm run test:nightly
 
