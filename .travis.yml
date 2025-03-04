@@ -21,7 +21,7 @@ install:
   - travis_wait 15 npm install
 script:
   - cd $TRAVIS_BUILD_DIR/server-api
-  - travis_wait 15 npm run test:nightly
+  - travis_wait 120 npm run test:nightly
 
 notifications:
   email:
